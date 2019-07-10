@@ -1,0 +1,27 @@
+* {
+    background-color: crimson;
+    color: greenyellow;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    font-size: 250px;
+}
+nav ul{
+    display:flex;
+    flex-direction: row;
+    min-width: 50%;
+    justify-content: space-around;
+    background-color: black;
+    height: 8vh;
+    align-items: center;
+}
+
+nav ul li {
+    background-color: black;
+}
+nav ul li:hover {
+    background-color:orange;
+}
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
