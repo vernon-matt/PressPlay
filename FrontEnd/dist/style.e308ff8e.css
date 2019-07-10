@@ -23,5 +23,8 @@ nav ul li {
 nav ul li:hover {
     background-color:orange;
 }
+li {
+    list-style: none;
+}
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */
