@@ -25,7 +25,7 @@ namespace PressPlay.Controllers
         [HttpGet]
         public IEnumerable<Artist> GetArtists()
         {
-            return _context.Artists;
+            return _context.Artists ;
         }
 
         // GET: api/Artists/5

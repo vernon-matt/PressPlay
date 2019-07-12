@@ -2,6 +2,7 @@ import Home from "./component/home";
 import Artists from "./component/Artists";
 import Albums from "./component/Albums";
 import Songs from "./component/Songs";
+import ApiAction from "./api/api-actions";
 
 pageBuild();
 
@@ -25,7 +26,9 @@ function artists(){
     const app = document.getElementById('app');
     const artists = document.getElementById('nav__Artists');
     artists.addEventListener('click', function(){
-        app.innerHTML = Artists();
+        ApiAction.getRequest("https://localhost:44378/api/artists", artistlist => {
+            app.innerHTML = Artists(artistlist);
+        })
     })
 };
 function albums(){
@@ -42,3 +45,4 @@ function songs(){
         app.innerHTML = Songs();
     })
 };
+
