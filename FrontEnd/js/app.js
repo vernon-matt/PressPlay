@@ -4,6 +4,7 @@ import Albums from "./component/Albums";
 import Songs from "./component/Songs";
 import ApiAction from "./api/api-actions";
 
+
 pageBuild();
 
 function pageBuild(){
@@ -29,6 +30,15 @@ function artists(){
         ApiAction.getRequest("https://localhost:44378/api/artists", artistlist => {
             app.innerHTML = Artists(artistlist);
         })
+    })
+
+    document.querySelector('#app').addEventListener("click", function(){
+        if(event.target.classList.contains('add-artist_submit')){
+            const artist = event.target.parentElement.querySelector('.add-artist_artisttext').value;
+            ApiAction.postRequest("https://localhost:44378/api/artists", artist, artistlist => {
+                document.querySelector('#app').innerHTML = Artists(artistlist)
+            })
+        }
     })
 };
 function albums(){
