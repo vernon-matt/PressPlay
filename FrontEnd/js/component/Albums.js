@@ -5,9 +5,9 @@ export default function Albums(albumlist){
         ${albumlist.map(album => {
         return `
             <li>
-                <p>${album.AlbumTitle}</p>
-                <img src="${album.ImageUrl}">
-                <p>${album.RecordLabel}</p>               
+                <p>${album.albumTitle}</p>
+                <img src="${album.imageUrl}">
+                <p>${album.recordLabel}</p>               
             </li>
         `;
     })

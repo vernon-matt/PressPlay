@@ -51,7 +51,7 @@ function albums(){
     const app = document.getElementById('app');
     const albums = document.getElementById('nav__Albums');
     albums.addEventListener('click', function(){
-    ApiAction.getRequest("https://localhost:44378/api/albums", albumlist => {
+        ApiAction.getRequest("https://localhost:44378/api/albums", albumlist => {
             app.innerHTML = Albums(albumlist);
 })
 })
@@ -61,7 +61,9 @@ function songs(){
     const app = document.getElementById('app');
     const songs = document.getElementById('nav__Songs');
     songs.addEventListener('click', function(){
-        app.innerHTML = Songs();
+        ApiAction.getRequest("https://localhost:44378/api/songs", songList => {
+            app.innerHTML = Songs(songList);
+        })
     })
 };
 

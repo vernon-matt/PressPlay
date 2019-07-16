@@ -140,7 +140,7 @@ exports.default = Artists;
 
 function Artists(artistlist) {
   return "\n    <h1>Artists</h1>\n    <ul>\n        ".concat(artistlist.map(function (artist) {
-    return "\n            <li>\n                <p>".concat(artist.artistName, "</p>\n                <img src=\"").concat(artist.imageUrl, "\">\n                <p>").concat(artist.artistId, "</p>               \n            </li>\n        ");
+    return "\n            <li>\n                <p>".concat(artist.artistName, "</p>\n                <img src=").concat(artist.imageUrl, ">\n                <p>").concat(artist.artistId, "</p>               \n            </li>\n        ");
   }).join(""), "\n\n        </ul>\n        <section> \n            <input type=\"text\" class=\"add-artist_artistname\" placeholder=\"Add an artist name.\">\n            <input type=\"text\" class=\"add-artist_artistimage\" placeholder=\"Add an artist Image.\">\n            <button class=\"add-artist_submit\"> Submit</button>\n        </section>\n\n\n    ");
 }
 
@@ -155,7 +155,7 @@ exports.default = Albums;
 
 function Albums(albumlist) {
   return "\n    <h1>Albums</h1>\n    <ul>\n        ".concat(albumlist.map(function (album) {
-    return "\n            <li>\n                <p>".concat(album.AlbumTitle, "</p>\n                <img src=\"").concat(album.ImageUrl, "\">\n                <p>").concat(album.RecordLabel, "</p>               \n            </li>\n        ");
+    return "\n            <li>\n                <p>".concat(album.albumTitle, "</p>\n                <img src=\"").concat(album.imageUrl, "\">\n                <p>").concat(album.recordLabel, "</p>               \n            </li>\n        ");
   }).join(""), "\n");
 }
 
@@ -169,7 +169,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Songs;
 
 function Songs() {
-  return "\n    <h1>Songs</h1>\n    ";
+  return "\n    <h1>Songs</h1>\n    <ul>\n    ".concat(songlist.map(function (song) {
+    return "\n        <li>\n            <p> ".concat(song.songTitle, "</p>\n            <p>").concat(song.songId, "</p>   \n            <p>").concat(song.duration, "</p>\n            <p>").concat(song.link, "</p>            \n        </li>\n    ");
+  }).join(""), "\n");
 }
 
 ;
@@ -287,7 +289,9 @@ function songs() {
   var app = document.getElementById('app');
   var songs = document.getElementById('nav__Songs');
   songs.addEventListener('click', function () {
-    app.innerHTML = (0, _Songs.default)();
+    _apiActions.default.getRequest("https://localhost:44378/api/songs", function (songList) {
+      app.innerHTML = (0, _Songs.default)(songList);
+    });
   });
 }
 
@@ -320,7 +324,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54878" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56671" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
