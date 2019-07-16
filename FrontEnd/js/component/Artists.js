@@ -6,7 +6,7 @@ export default function Artists(artistlist){
         return `
             <li>
                 <p>${artist.artistName}</p>
-                <p>${artist.imageUrl}</p>
+                <img src="${artist.imageUrl}">
                 <p>${artist.artistId}</p>               
             </li>
         `;

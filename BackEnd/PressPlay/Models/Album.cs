@@ -12,14 +12,8 @@ namespace PressPlay.Models
         public string ImageUrl { get; set; }
         public string RecordLabel { get; set; }
 
-        public int SongId { get; set; }
 
-        public Album(int albumId, string albumTitle, string imageUrl)
-        {
-            AlbumId = albumId;
-            AlbumTitle = albumTitle;
-            ImageUrl = imageUrl;
-        }
+
 
         public Album()
         {
