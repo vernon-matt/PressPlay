@@ -11,8 +11,7 @@ function postRequest(location, requestBody, callback) {
         headers: {
             "Content-Type" : "application/json"
         }, 
-        body: requestBody
-        
+        body: JSON.stringify(requestBody)    
     })
     .then(response => response.json())
     .then(jsonData => callback(jsonData))

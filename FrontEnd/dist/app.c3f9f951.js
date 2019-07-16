@@ -140,8 +140,8 @@ exports.default = Artists;
 
 function Artists(artistlist) {
   return "\n    <h1>Artists</h1>\n    <ul>\n        ".concat(artistlist.map(function (artist) {
-    return "\n            <li>\n                <p>".concat(artist.artistName, "</p>\n                <p>").concat(artist.artistId, "</p>\n                <p>").concat(artist.imageUrl, "</p>\n                \n            </li>\n        ");
-  }).join(""), "\n\n        </ul>\n        <section> \n            <input type=\"text\" class=\"add-artist_artisttext\" placeholder=\"Add an artist.\">\n            <button class=\"add-artist_submit\"> Submit</button>\n        </section>\n\n    ");
+    return "\n            <li>\n                <p>".concat(artist.artistName, "</p>\n                <p>").concat(artist.imageUrl, "</p>\n                <p>").concat(artist.artistId, "</p>               \n            </li>\n        ");
+  }).join(""), "\n\n        </ul>\n        <section> \n            <input type=\"text\" class=\"add-artist_artistname\" placeholder=\"Add an artist name.\">\n            <input type=\"text\" class=\"add-artist_artistimage\" placeholder=\"Add an artist Image.\">\n            <button class=\"add-artist_submit\"> Submit</button>\n        </section>\n\n\n    ");
 }
 
 ;
@@ -195,7 +195,7 @@ function postRequest(location, requestBody, callback) {
     headers: {
       "Content-Type": "application/json"
     },
-    body: requestBody
+    body: JSON.stringify(requestBody)
   }).then(function (response) {
     return response.json();
   }).then(function (jsonData) {
@@ -254,9 +254,15 @@ function artists() {
   });
   document.querySelector('#app').addEventListener("click", function () {
     if (event.target.classList.contains('add-artist_submit')) {
-      var artist = event.target.parentElement.querySelector('.add-artist_artisttext').value;
+      var artist = event.target.parentElement.querySelector('.add-artist_artistname').value;
+      var artistimage = event.target.parentElement.querySelector('.add-artist_artistimage').value;
+      var data = {
+        artistId: 0,
+        artistName: artist,
+        ImageUrl: artistimage
+      };
 
-      _apiActions.default.postRequest("https://localhost:44378/api/artists", artist, function (artistlist) {
+      _apiActions.default.postRequest("https://localhost:44378/api/artists", data, function (artistlist) {
         document.querySelector('#app').innerHTML = (0, _Artists.default)(artistlist);
       });
     }
@@ -312,7 +318,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57333" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54383" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

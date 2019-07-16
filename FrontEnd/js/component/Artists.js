@@ -6,9 +6,8 @@ export default function Artists(artistlist){
         return `
             <li>
                 <p>${artist.artistName}</p>
-                <p>${artist.artistId}</p>
                 <p>${artist.imageUrl}</p>
-                
+                <p>${artist.artistId}</p>               
             </li>
         `;
     })
@@ -16,9 +15,11 @@ export default function Artists(artistlist){
 
         </ul>
         <section> 
-            <input type="text" class="add-artist_artisttext" placeholder="Add an artist.">
+            <input type="text" class="add-artist_artistname" placeholder="Add an artist name.">
+            <input type="text" class="add-artist_artistimage" placeholder="Add an artist Image.">
             <button class="add-artist_submit"> Submit</button>
         </section>
+
 
     `
     };

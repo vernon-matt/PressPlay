@@ -34,8 +34,14 @@ function artists(){
 
     document.querySelector('#app').addEventListener("click", function(){
         if(event.target.classList.contains('add-artist_submit')){
-            const artist = event.target.parentElement.querySelector('.add-artist_artisttext').value;
-            ApiAction.postRequest("https://localhost:44378/api/artists", artist, artistlist => {
+            const artist = event.target.parentElement.querySelector('.add-artist_artistname').value;
+            const artistimage = event.target.parentElement.querySelector('.add-artist_artistimage').value;
+            const data = {
+                artistId: 0,
+                artistName: artist,
+                ImageUrl: artistimage
+            }
+            ApiAction.postRequest("https://localhost:44378/api/artists", data, artistlist => {
                 document.querySelector('#app').innerHTML = Artists(artistlist)
             })
         }
