@@ -156,7 +156,7 @@ exports.default = Albums;
 function Albums(albumlist) {
   return "\n    <h1>Albums</h1>\n    <ul>\n        ".concat(albumlist.map(function (album) {
     return "\n            <li>\n                <p>".concat(album.albumTitle, "</p>\n                <img src=\"").concat(album.imageUrl, "\">\n                <p>").concat(album.recordLabel, "</p>               \n            </li>\n        ");
-  }).join(""), "\n");
+  }).join(""), "\n    </ul>\n");
 }
 
 ;
@@ -168,10 +168,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = Songs;
 
-function Songs() {
+function Songs(songlist) {
   return "\n    <h1>Songs</h1>\n    <ul>\n    ".concat(songlist.map(function (song) {
-    return "\n        <li>\n            <p> ".concat(song.songTitle, "</p>\n            <p>").concat(song.songId, "</p>   \n            <p>").concat(song.duration, "</p>\n            <p>").concat(song.link, "</p>            \n        </li>\n    ");
-  }).join(""), "\n");
+    return "\n        <li>\n            <p> ".concat(song.songTitle, "</p>\n            <p>").concat(song.songId, "</p>   \n            <p>").concat(song.duration, "</p>\n            <a href = \"").concat(song.link, "\">YouTube Link</a>         \n        </li>\n    ");
+  }).join(""), "\n    </ul>\n");
 }
 
 ;
@@ -289,8 +289,8 @@ function songs() {
   var app = document.getElementById('app');
   var songs = document.getElementById('nav__Songs');
   songs.addEventListener('click', function () {
-    _apiActions.default.getRequest("https://localhost:44378/api/songs", function (songList) {
-      app.innerHTML = (0, _Songs.default)(songList);
+    _apiActions.default.getRequest("https://localhost:44378/api/songs", function (songlist) {
+      app.innerHTML = (0, _Songs.default)(songlist);
     });
   });
 }
@@ -324,7 +324,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56671" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51594" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -10,7 +10,9 @@ export default function Albums(albumlist){
                 <p>${album.recordLabel}</p>               
             </li>
         `;
+    
     })
     .join("")}
+    </ul>
 `
 };

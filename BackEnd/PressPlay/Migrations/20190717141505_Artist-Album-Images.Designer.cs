@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PressPlay;
 
 namespace PressPlay.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    partial class SiteContextModelSnapshot : ModelSnapshot
+    [Migration("20190717141505_Artist-Album-Images")]
+    partial class ArtistAlbumImages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,7 +90,7 @@ namespace PressPlay.Migrations
                         new { SongId = 1, AlbumId = 1, ArtistId = 1, Duration = 132, Link = "https://www.youtube.com/watch?v=2hMy0rnHQv0", SongTitle = "Motiv8" },
                         new { SongId = 2, AlbumId = 2, ArtistId = 2, Duration = 182, Link = "https://www.youtube.com/watch?v=-_aGvdfLTKY", SongTitle = "Nasa" },
                         new { SongId = 3, AlbumId = 3, ArtistId = 3, Duration = 191, Link = "https://www.youtube.com/watch?v=mW1dbiD_zDk", SongTitle = "Get the Party Started" },
-                        new { SongId = 4, AlbumId = 4, ArtistId = 4, Duration = 299, Link = "https://www.youtube.com/watch?v=Lcm9qqo_qB0", SongTitle = "Tornado of Souls" }
+                        new { SongId = 4, AlbumId = 4, ArtistId = 4, Duration = 299, Link = "https://www.youtube.com/watch?v=bK95lWHl7js", SongTitle = "Dystopia" }
                     );
                 });
 #pragma warning restore 612, 618

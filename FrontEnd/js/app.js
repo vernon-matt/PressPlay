@@ -61,8 +61,8 @@ function songs(){
     const app = document.getElementById('app');
     const songs = document.getElementById('nav__Songs');
     songs.addEventListener('click', function(){
-        ApiAction.getRequest("https://localhost:44378/api/songs", songList => {
-            app.innerHTML = Songs(songList);
+        ApiAction.getRequest("https://localhost:44378/api/songs", songlist => {
+            app.innerHTML = Songs(songlist);
         })
     })
 };

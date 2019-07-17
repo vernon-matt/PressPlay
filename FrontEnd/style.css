@@ -49,3 +49,8 @@ li {
     justify-content: space-between;
     
 }
+
+ul li img {
+    width: 250px;
+    height: 200px;
+}
