@@ -140,8 +140,8 @@ exports.default = Artists;
 
 function Artists(artistlist) {
   return "\n    <h1>Artists</h1>\n    <ul>\n        ".concat(artistlist.map(function (artist) {
-    return "\n            <li>\n                <p>".concat(artist.artistName, "</p>\n                <img src=").concat(artist.imageUrl, ">\n                <p>").concat(artist.artistId, "</p>               \n            </li>\n        ");
-  }).join(""), "\n\n        </ul>\n        <section> \n            <input type=\"text\" class=\"add-artist_artistname\" placeholder=\"Add an artist name.\">\n            <input type=\"text\" class=\"add-artist_artistimage\" placeholder=\"Add an artist Image.\">\n            <button class=\"add-artist_submit\"> Submit</button>\n        </section>\n\n\n    ");
+    return "\n            <li>\n                <p>".concat(artist.artistName, "</p>\n                <img src=").concat(artist.imageUrl, ">\n                <input class='delete-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n                <button class='delete-artistId__delete'>Delete Artist</button>              \n            </li>\n        ");
+  }).join(""), "\n\n        </ul>\n        <section> \n            <input type=\"text\" class=\"add-artist_artistname\" placeholder=\"Add an artist name.\">\n            <input type=\"text\" class=\"add-artist_artistimage\" placeholder=\"Add an artist Image.\">\n            <button class=\"add-artist_submit\"> Submit</button>\n        </section>\n\n    ");
 }
 
 ;
@@ -196,10 +196,10 @@ function getRequest(location, callback) {
 function postRequest(location, requestBody, callback) {
   fetch(location, {
     method: "POST",
+    body: JSON.stringify(requestBody),
     headers: {
       "Content-Type": "application/json"
-    },
-    body: JSON.stringify(requestBody)
+    }
   }).then(function (response) {
     return response.json();
   }).then(function (jsonData) {
@@ -209,9 +209,26 @@ function postRequest(location, requestBody, callback) {
   });
 }
 
+function deleteRequest(location, requestBody, callback) {
+  fetch(location, {
+    method: "DELETE",
+    body: JSON.stringify(requestBody),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (response) {
+    return response.json();
+  }).then(function (data) {
+    return callback(data);
+  }).catch(function (err) {
+    return console.log(err);
+  });
+}
+
 var _default = {
   getRequest: getRequest,
-  postRequest: postRequest
+  postRequest: postRequest,
+  deleteRequest: deleteRequest
 };
 exports.default = _default;
 },{}],"js/app.js":[function(require,module,exports) {
@@ -271,6 +288,21 @@ function artists() {
       });
     }
   });
+  document.querySelector('#app').addEventListener("click", function () {
+    if (event.target.classList.contains("delete-artistId__delete")) {
+      var artist = event.target.parentElement.querySelector(".delete-artist__id").value;
+
+      _apiActions.default.deleteRequest("https://localhost:44378/api/artists/" + artist, artist, function (artists) {
+        document.querySelector('#app').innerHTML = (0, _Artists.default)(artists);
+      });
+    }
+  });
+  var del = document.getElementByClassName('delete-artistId__delete');
+  del.addEventListener('click', function () {
+    _apiActions.default.getRequest("https://localhost:44378/api/artists", function (artistlist) {
+      app.innerHTML = (0, _Artists.default)(artistlist);
+    });
+  });
 }
 
 ;
@@ -324,7 +356,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51594" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64739" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

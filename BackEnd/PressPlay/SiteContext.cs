@@ -19,8 +19,8 @@ namespace PressPlay
         {
             var connectionString = "Server=(localdb)\\mssqllocaldb;Database=PressPlay;Trusted_Connection=True;";
 
-            optionsBuilder.UseSqlServer(connectionString);
-                          //.UseLazyLoadingProxies();
+            optionsBuilder.UseSqlServer(connectionString)
+                          .UseLazyLoadingProxies();
 
             base.OnConfiguring(optionsBuilder);
         }

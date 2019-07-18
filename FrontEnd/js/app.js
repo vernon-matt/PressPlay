@@ -42,9 +42,30 @@ function artists(){
                 ImageUrl: artistimage
             }
             ApiAction.postRequest("https://localhost:44378/api/artists", data, artistlist => {
-                document.querySelector('#app').innerHTML = Artists(artistlist)
+                document.querySelector('#app').innerHTML = Artists(artistlist);
             })
         }
+    })
+
+    
+      document.querySelector('#app').addEventListener("click", function() {
+        if (event.target.classList.contains("delete-artistId__delete")) {
+          const artist = event.target.parentElement.querySelector(".delete-artist__id")
+            .value;
+          ApiAction.deleteRequest("https://localhost:44378/api/artists/"+ artist,artist,
+            artists => {
+                document.querySelector('#app').innerHTML = Artists(artists);
+            },           
+            );
+        }
+      });
+      
+        
+        const del = document.getElementByClassName('delete-artistId__delete')
+        del.addEventListener('click', function(){
+        ApiAction.getRequest("https://localhost:44378/api/artists", artistlist => {
+            app.innerHTML = Artists(artistlist);
+        })
     })
 };
 function albums(){
