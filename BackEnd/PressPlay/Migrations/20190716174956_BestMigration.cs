@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PressPlay.Migrations
 {
-    public partial class SeedData : Migration
+    public partial class BestMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,6 +20,20 @@ namespace PressPlay.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Album", x => x.AlbumId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Artists",
+                columns: table => new
+                {
+                    ArtistId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ArtistName = table.Column<string>(nullable: true),
+                    ImageUrl = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Artists", x => x.ArtistId);
                 });
 
             migrationBuilder.CreateTable(
@@ -51,6 +65,17 @@ namespace PressPlay.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Artists",
+                columns: new[] { "ArtistId", "ArtistName", "ImageUrl" },
+                values: new object[,]
+                {
+                    { 1, "J Cole", "JCole.jpg" },
+                    { 2, "Ariana Grande", "/images/ArianaGrande.jpg/" },
+                    { 3, "Pink", "/images/Pink.jpg/" },
+                    { 4, "Megadeth", "/images/Megadeth.jpg" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Song",
                 columns: new[] { "SongId", "AlbumId", "ArtistId", "Duration", "Link", "SongTitle" },
                 values: new object[,]
@@ -66,6 +91,9 @@ namespace PressPlay.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Album");
+
+            migrationBuilder.DropTable(
+                name: "Artists");
 
             migrationBuilder.DropTable(
                 name: "Song");

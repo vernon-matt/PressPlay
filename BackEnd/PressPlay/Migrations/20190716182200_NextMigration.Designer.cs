@@ -9,8 +9,8 @@ using PressPlay;
 namespace PressPlay.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    [Migration("20190716154640_SeedData")]
-    partial class SeedData
+    [Migration("20190716182200_NextMigration")]
+    partial class NextMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -59,10 +59,10 @@ namespace PressPlay.Migrations
                     b.ToTable("Artists");
 
                     b.HasData(
-                        new { ArtistId = 1, ArtistName = "J Cole", ImageUrl = "/images/JCole.jpg/" },
-                        new { ArtistId = 2, ArtistName = "Ariana Grande", ImageUrl = "/images/ArianaGrande.jpg/" },
-                        new { ArtistId = 3, ArtistName = "Pink", ImageUrl = "/images/Pink.jpg/" },
-                        new { ArtistId = 4, ArtistName = "Megadeth", ImageUrl = "/images/Megadeth.jpg" }
+                        new { ArtistId = 1, ArtistName = "J Cole", ImageUrl = "/Images/JCole.jpg" },
+                        new { ArtistId = 2, ArtistName = "Ariana Grande", ImageUrl = "/Images/ArianaGrande.jpg" },
+                        new { ArtistId = 3, ArtistName = "Pink", ImageUrl = "/Images/Pink.jpg" },
+                        new { ArtistId = 4, ArtistName = "Megadeth", ImageUrl = "/Images/Megadeth.jpg" }
                     );
                 });
 

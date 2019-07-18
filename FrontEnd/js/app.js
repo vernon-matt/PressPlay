@@ -3,6 +3,7 @@ import Artists from "./component/Artists";
 import Albums from "./component/Albums";
 import Songs from "./component/Songs";
 import ApiAction from "./api/api-actions";
+import apiActions from "./api/api-actions";
 
 
 pageBuild();
@@ -46,6 +47,35 @@ function artists(){
             })
         }
     })
+
+    app.addEventListener("click", function() {
+        if (event.target.classList.contains(".delete-artist_submit")) {
+            const artist = event.target.parentElement.querySelector(
+                "delete-artist_artistName"
+            ).value;
+            ApiAction.deleteRequest(
+                "https://localhost:44378/api/artists", 
+                artist,
+                artistlist => {
+                    document.querySelector("#app").innerHTML = Artists(artistlist);
+                }
+            )
+        }
+    })
+
+    app.addEventListener("click", function() {
+        if (event.target.classList.contains("delete-artistId_submit")) {
+            const artist = event.target.parentElement.querySelector(".delete-artist_id")
+            .value;
+            ApiAction.deleteRequest(
+                "https://localhost:44378/api/artists",
+                artist, 
+                artistlist => {
+                    document.querySelector("#app").innerHTML = Artists(artistlist);
+                }
+            )
+        }
+    })
 };
 function albums(){
     const app = document.getElementById('app');
@@ -61,8 +91,8 @@ function songs(){
     const app = document.getElementById('app');
     const songs = document.getElementById('nav__Songs');
     songs.addEventListener('click', function(){
-        ApiAction.getRequest("https://localhost:44378/api/songs", songList => {
-            app.innerHTML = Songs(songList);
+        ApiAction.getRequest("https://localhost:44378/api/songs", songlist => {
+            app.innerHTML = Songs(songlist);
         })
     })
 };

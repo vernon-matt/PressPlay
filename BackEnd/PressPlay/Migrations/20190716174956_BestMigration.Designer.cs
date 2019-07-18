@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PressPlay;
 
 namespace PressPlay.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    partial class SiteContextModelSnapshot : ModelSnapshot
+    [Migration("20190716174956_BestMigration")]
+    partial class BestMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,10 +59,10 @@ namespace PressPlay.Migrations
                     b.ToTable("Artists");
 
                     b.HasData(
-                        new { ArtistId = 1, ArtistName = "J Cole", ImageUrl = "/Images/JCole.jpg" },
-                        new { ArtistId = 2, ArtistName = "Ariana Grande", ImageUrl = "/Images/ArianaGrande.jpg" },
-                        new { ArtistId = 3, ArtistName = "Pink", ImageUrl = "/Images/Pink.jpg" },
-                        new { ArtistId = 4, ArtistName = "Megadeth", ImageUrl = "/Images/Megadeth.jpg" }
+                        new { ArtistId = 1, ArtistName = "J Cole", ImageUrl = "JCole.jpg" },
+                        new { ArtistId = 2, ArtistName = "Ariana Grande", ImageUrl = "/images/ArianaGrande.jpg/" },
+                        new { ArtistId = 3, ArtistName = "Pink", ImageUrl = "/images/Pink.jpg/" },
+                        new { ArtistId = 4, ArtistName = "Megadeth", ImageUrl = "/images/Megadeth.jpg" }
                     );
                 });
 

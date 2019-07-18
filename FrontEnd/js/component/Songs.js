@@ -1,4 +1,4 @@
-export default function Songs(){
+export default function Songs(songlist){
     return `
     <h1>Songs</h1>
     <ul>

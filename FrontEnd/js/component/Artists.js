@@ -7,7 +7,9 @@ export default function Artists(artistlist){
             <li>
                 <p>${artist.artistName}</p>
                 <img src=${artist.imageUrl}>
-                <p>${artist.artistId}</p>               
+                <p>${artist.artistId}</p>   
+                <input class= "delete-artist_id" type="hidden" value="${artist.artistId}">
+                <button class="delete-artistId_submit">&times</button>            
             </li>
         `;
     })
@@ -19,6 +21,12 @@ export default function Artists(artistlist){
             <input type="text" class="add-artist_artistimage" placeholder="Add an artist Image.">
             <button class="add-artist_submit"> Submit</button>
         </section>
+
+        <section class="delete-artist">
+            <input class="delete-artist_artistName" type="text" placeholder= "Delete artist.">
+            <button class= "delete-artist_submit">Submit</button>
+        </section>
+
 
 
     `

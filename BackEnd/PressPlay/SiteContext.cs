@@ -11,6 +11,7 @@ namespace PressPlay
 
     {
         public DbSet<Artist> Artists { get; set; } 
+       
 
 
 
@@ -32,25 +33,25 @@ namespace PressPlay
                 {
                     ArtistId = 1,
                     ArtistName = "J Cole",
-                    ImageUrl = "/images/JCole.jpg/",
+                    ImageUrl = "/Images/JCole.jpg",
                 },
                 new Artist
                 {
                     ArtistId = 2,
                     ArtistName = "Ariana Grande",
-                    ImageUrl = "/images/ArianaGrande.jpg/",
+                    ImageUrl = "/Images/ArianaGrande.jpg",
                 },
                 new Artist
                 {
                     ArtistId = 3,
                     ArtistName = "Pink",
-                    ImageUrl = "/images/Pink.jpg/",
+                    ImageUrl = "/Images/Pink.jpg",
                 },
                 new Artist
                 {
                     ArtistId = 4,
                     ArtistName = "Megadeth",
-                    ImageUrl = "/images/Megadeth.jpg",
+                    ImageUrl = "/Images/Megadeth.jpg",
                 });
 
             modelBuilder.Entity<Album>().HasData(
@@ -123,5 +124,7 @@ namespace PressPlay
         }
 
         public DbSet<PressPlay.Models.Album> Album { get; set; }
+
+        public DbSet<PressPlay.Models.Song> Song { get; set; }
     }
 }
