@@ -3,7 +3,8 @@ import Artists from "./component/Artists";
 import Albums from "./component/Albums";
 import Songs from "./component/Songs";
 import ApiAction from "./api/api-actions";
-
+import AlbumsByArtist from "./component/AlbumsByArtist";
+import SongByAlbum from "./component/SongByAlbum";
 
 pageBuild();
 
@@ -12,7 +13,8 @@ function pageBuild(){
     artists();
     albums();
     songs();
-
+    albumsbyartist();
+    songbyalbum();
 }
 
 function home(){
@@ -71,6 +73,40 @@ function albums(){
             app.innerHTML = Albums(albumlist);
 })
 })
+}
+
+function albumsbyartist(){
+    
+    document.querySelector('#app').addEventListener("click", function() {
+        if (event.target.classList.contains("select-artistId__select")) {
+          const artistId = event.target.parentElement.querySelector(".select-artist__id")
+            .value;
+            console.log(artistId)
+          ApiAction.getRequest("https://localhost:44378/api/albums/"+ artistId,
+            artists => {
+                document.querySelector('#app').innerHTML = AlbumsByArtist(artists);
+            },           
+            );
+        }
+      });
+
+}
+
+function songbyalbum(){
+    
+    document.querySelector('#app').addEventListener("click", function() {
+        if (event.target.classList.contains("select-albumId__select")) {
+          const albumId = event.target.parentElement.querySelector(".select-album__id")
+            .value;
+            console.log(albumId)
+          ApiAction.getRequest("https://localhost:44378/api/songs/"+ albumId,
+            albums => {
+                document.querySelector('#app').innerHTML = SongByAlbum(albums);
+            },           
+            );
+        }
+      });
+
 }
 
 function songs(){

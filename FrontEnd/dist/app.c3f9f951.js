@@ -140,7 +140,7 @@ exports.default = Artists;
 
 function Artists(artistlist) {
   return "\n    <h1>Artists</h1>\n    <ul>\n        ".concat(artistlist.map(function (artist) {
-    return "\n            <li>\n                <p>".concat(artist.artistName, "</p>\n                <img src=").concat(artist.imageUrl, ">\n                <input class='delete-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n                <button class='delete-artistId__delete'>Delete Artist</button>              \n            </li>\n        ");
+    return "\n            <li>\n                <p>".concat(artist.artistName, "</p>\n                <img src=").concat(artist.imageUrl, ">\n                <input class='delete-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n                <button class='delete-artistId__delete'>Delete Artist</button> \n                <input class='select-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n            <button class='select-artistId__select'>Select Artist</button>               \n            </li>\n        ");
   }).join(""), "\n\n        </ul>\n        <section> \n            <input type=\"text\" class=\"add-artist_artistname\" placeholder=\"Add an artist name.\">\n            <input type=\"text\" class=\"add-artist_artistimage\" placeholder=\"Add an artist Image.\">\n            <button class=\"add-artist_submit\"> Submit</button>\n        </section>\n\n    ");
 }
 
@@ -231,6 +231,36 @@ var _default = {
   deleteRequest: deleteRequest
 };
 exports.default = _default;
+},{}],"js/component/AlbumsByArtist.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = AlbumsByArtist;
+
+function AlbumsByArtist(albumsbyid) {
+  return "\n    \n    <ul>\n    ".concat(albumsbyid.map(function (album) {
+    return "\n        \n        <li>\n            <p>".concat(album.albumTitle, "</p>\n            <img src=\"").concat(album.imageUrl, "\">\n            <p>").concat(album.recordLabel, "</p>  \n            <input class='select-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n            <button class='select-albumId__select'>Select Album</button>                                      \n        </li>\n    ");
+  }).join(""), "\n    </ul>\n    ");
+}
+
+;
+},{}],"js/component/SongByAlbum.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = SongByArtist;
+
+function SongByArtist(songbyid) {
+  return "\n    \n    <ul>\n    ".concat(songbyid.map(function (song) {
+    return "\n        <h2> Selected Album</h2>\n        <li>\n            <p>".concat(song.songTitle, "</p>                                     \n        </li>\n    ");
+  }).join(""), "\n    </ul>\n    ");
+}
+
+;
 },{}],"js/app.js":[function(require,module,exports) {
 "use strict";
 
@@ -244,6 +274,10 @@ var _Songs = _interopRequireDefault(require("./component/Songs"));
 
 var _apiActions = _interopRequireDefault(require("./api/api-actions"));
 
+var _AlbumsByArtist = _interopRequireDefault(require("./component/AlbumsByArtist"));
+
+var _SongByAlbum = _interopRequireDefault(require("./component/SongByAlbum"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 pageBuild();
@@ -253,6 +287,8 @@ function pageBuild() {
   artists();
   albums();
   songs();
+  albumsbyartist();
+  songbyalbum();
 }
 
 function home() {
@@ -311,6 +347,32 @@ function albums() {
   });
 }
 
+function albumsbyartist() {
+  document.querySelector('#app').addEventListener("click", function () {
+    if (event.target.classList.contains("select-artistId__select")) {
+      var artistId = event.target.parentElement.querySelector(".select-artist__id").value;
+      console.log(artistId);
+
+      _apiActions.default.getRequest("https://localhost:44378/api/albums/" + artistId, function (artists) {
+        document.querySelector('#app').innerHTML = (0, _AlbumsByArtist.default)(artists);
+      });
+    }
+  });
+}
+
+function songbyalbum() {
+  document.querySelector('#app').addEventListener("click", function () {
+    if (event.target.classList.contains("select-albumId__select")) {
+      var albumId = event.target.parentElement.querySelector(".select-album__id").value;
+      console.log(albumId);
+
+      _apiActions.default.getRequest("https://localhost:44378/api/songs/" + albumId, function (albums) {
+        document.querySelector('#app').innerHTML = (0, _SongByAlbum.default)(albums);
+      });
+    }
+  });
+}
+
 function songs() {
   var app = document.getElementById('app');
   var songs = document.getElementById('nav__Songs');
@@ -322,7 +384,7 @@ function songs() {
 }
 
 ;
-},{"./component/home":"js/component/home.js","./component/Artists":"js/component/Artists.js","./component/Albums":"js/component/Albums.js","./component/Songs":"js/component/Songs.js","./api/api-actions":"js/api/api-actions.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./component/home":"js/component/home.js","./component/Artists":"js/component/Artists.js","./component/Albums":"js/component/Albums.js","./component/Songs":"js/component/Songs.js","./api/api-actions":"js/api/api-actions.js","./component/AlbumsByArtist":"js/component/AlbumsByArtist.js","./component/SongByAlbum":"js/component/SongByAlbum.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -350,7 +412,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49509" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49890" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

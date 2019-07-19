@@ -8,7 +8,9 @@ export default function Artists(artistlist){
                 <p>${artist.artistName}</p>
                 <img src=${artist.imageUrl}>
                 <input class='delete-artist__id' type='hidden' value="${artist.artistId}">
-                <button class='delete-artistId__delete'>Delete Artist</button>              
+                <button class='delete-artistId__delete'>Delete Artist</button> 
+                <input class='select-artist__id' type='hidden' value="${artist.artistId}">
+            <button class='select-artistId__select'>Select Artist</button>               
             </li>
         `;
     })

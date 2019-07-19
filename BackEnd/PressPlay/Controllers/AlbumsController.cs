@@ -30,21 +30,9 @@ namespace PressPlay.Controllers
 
         // GET: api/Albums/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetAlbum([FromRoute] int id)
+        public IEnumerable<Album> GetAlbum([FromRoute] int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var album = await _context.Album.FindAsync(id);
-
-            if (album == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(album);
+            return _context.Album.Where(r => r.ArtistId == id);
         }
 
         // PUT: api/Albums/5
