@@ -55,4 +55,13 @@ ul li img {
     height: 200px;
 }
 
+.delete-artistId__delete{
+    color: white;
+}
+
+.add-artist_submit {
+    color: white;
+}
+
+
 /*# sourceMappingURL=/style.e308ff8e.css.map */

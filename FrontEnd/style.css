@@ -54,3 +54,11 @@ ul li img {
     width: 250px;
     height: 200px;
 }
+
+.delete-artistId__delete{
+    color: white;
+}
+
+.add-artist_submit {
+    color: white;
+}

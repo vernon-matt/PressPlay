@@ -297,12 +297,6 @@ function artists() {
       });
     }
   });
-  var del = document.getElementByClassName('delete-artistId__delete');
-  del.addEventListener('click', function () {
-    _apiActions.default.getRequest("https://localhost:44378/api/artists", function (artistlist) {
-      app.innerHTML = (0, _Artists.default)(artistlist);
-    });
-  });
 }
 
 ;
@@ -356,7 +350,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64739" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49509" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

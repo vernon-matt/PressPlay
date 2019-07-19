@@ -84,7 +84,7 @@ namespace PressPlay.Controllers
 
         // POST: api/Artists
         [HttpPost]
-        public async Task<IActionResult> PostArtist([FromBody] Artist artist)
+        public async Task<ActionResult<IEnumerable<Artist>>> PostArtist([FromBody] Artist artist)
         {
             if (!ModelState.IsValid)
             {
@@ -94,12 +94,12 @@ namespace PressPlay.Controllers
             _context.Artists.Add(artist);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetArtist", new { id = artist.ArtistId }, artist);
+            return _context.Artists;
         }
 
         // DELETE: api/Artists/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteArtist([FromRoute] int id)
+        public async Task<ActionResult<IEnumerable<Artist>>> DeleteArtist([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
@@ -115,7 +115,7 @@ namespace PressPlay.Controllers
             _context.Artists.Remove(artist);
             await _context.SaveChangesAsync();
 
-            return Ok(artist);
+            return _context.Artists;
         }
 
         private bool ArtistExists(int id)

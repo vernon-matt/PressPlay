@@ -61,12 +61,7 @@ function artists(){
       });
       
         
-        const del = document.getElementByClassName('delete-artistId__delete')
-        del.addEventListener('click', function(){
-        ApiAction.getRequest("https://localhost:44378/api/artists", artistlist => {
-            app.innerHTML = Artists(artistlist);
-        })
-    })
+        
 };
 function albums(){
     const app = document.getElementById('app');
