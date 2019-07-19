@@ -11,7 +11,7 @@ namespace PressPlay.Models
         public string AlbumTitle { get; set; }
         public string ImageUrl { get; set; }
         public string RecordLabel { get; set; }
-        public virtual Artist Artist { get; set; }
+        
         public virtual int ArtistId { get; set; }
         public virtual List<Song> Song { get; set; }
 

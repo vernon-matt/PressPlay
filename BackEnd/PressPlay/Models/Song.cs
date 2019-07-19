@@ -12,7 +12,7 @@ namespace PressPlay.Models
         public string SongTitle { get; set; }
         public string Link { get; set; }
         public int Duration { get; set; }
-        public virtual Album Album { get; set; }
+        
         public virtual int AlbumId {get; set;}
 
         public Song()

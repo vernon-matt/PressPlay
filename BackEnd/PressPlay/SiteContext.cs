@@ -10,9 +10,11 @@ namespace PressPlay
     public class SiteContext : DbContext 
 
     {
-        public DbSet<Artist> Artists { get; set; } 
+        public DbSet<Artist> Artists { get; set; }
 
+        public DbSet<Album> Album { get; set; }
 
+        public DbSet<Song> Song { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -124,8 +126,6 @@ namespace PressPlay
                 });
         }
 
-        public DbSet<PressPlay.Models.Album> Album { get; set; }
-
-        public DbSet<PressPlay.Models.Song> Song { get; set; }
+        
     }
 }
