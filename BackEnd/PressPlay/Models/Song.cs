@@ -12,16 +12,8 @@ namespace PressPlay.Models
         public string SongTitle { get; set; }
         public string Link { get; set; }
         public int Duration { get; set; }
-        public int AlbumId { get; set; }
-        public int ArtistId { get; set; }
-
-        public Song(int songId, string songTitle, string link, int duration)
-        {
-            SongId = songId;
-            SongTitle = songTitle;
-            Link = link;
-            Duration = duration;
-        }
+        public virtual Album Album { get; set; }
+        public virtual int AlbumId {get; set;}
 
         public Song()
         {

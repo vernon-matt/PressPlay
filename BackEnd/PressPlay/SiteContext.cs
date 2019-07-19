@@ -60,6 +60,7 @@ namespace PressPlay
                     AlbumTitle = "KOD",
                     ImageUrl = "https://media.pitchfork.com/photos/5ad8b39b5fadaa7e89cfd808/2:1/w_1000/KOD%20J.%20Cole.jpg",
                     RecordLabel = "DreamVille",
+                    ArtistId = 1
                 },
                 new Album
                 {
@@ -67,6 +68,7 @@ namespace PressPlay
                     AlbumTitle = "Sweetener",
                     ImageUrl = "https://www.udiscovermusic.com/wp-content/uploads/2018/06/Ariana-Grande-No-Tears-Left-To-Cry-packshot-cropped-web-optimised-1000.jpg",
                     RecordLabel = "Republic Records",
+                    ArtistId = 2
                 },
                 new Album
                 {
@@ -74,6 +76,8 @@ namespace PressPlay
                     AlbumTitle = "missundaztood",
                     ImageUrl = "https://images-na.ssl-images-amazon.com/images/I/81GGshIlE4L._SL1200_.jpg",
                     RecordLabel = "Arista Records",
+                    ArtistId = 3
+
                 },
                 new Album
                 {
@@ -81,6 +85,8 @@ namespace PressPlay
                     AlbumTitle = "Rust In Peace",
                     ImageUrl = "https://i.ytimg.com/vi/SW6uObWJRH4/maxresdefault.jpg",
                     RecordLabel = "Capitol Records",
+                    ArtistId = 4
+
                 });
 
             modelBuilder.Entity<Song>().HasData(
@@ -91,7 +97,6 @@ namespace PressPlay
                     Link = "https://www.youtube.com/watch?v=2hMy0rnHQv0",
                     Duration = 132,
                     AlbumId = 1,
-                    ArtistId = 1,
                 },
                 new Song
                 {
@@ -100,7 +105,6 @@ namespace PressPlay
                     Link = "https://www.youtube.com/watch?v=-_aGvdfLTKY",
                     Duration = 182,
                     AlbumId = 2,
-                    ArtistId = 2,
                 },
                 new Song
                 {
@@ -109,7 +113,6 @@ namespace PressPlay
                     Link = "https://www.youtube.com/watch?v=mW1dbiD_zDk",
                     Duration = 191,
                     AlbumId = 3,
-                    ArtistId = 3,
                 },
                 new Song
                 {
@@ -118,7 +121,6 @@ namespace PressPlay
                     Link = "https://www.youtube.com/watch?v=Lcm9qqo_qB0",
                     Duration = 299,
                     AlbumId = 4,
-                    ArtistId = 4,
                 });
         }
 

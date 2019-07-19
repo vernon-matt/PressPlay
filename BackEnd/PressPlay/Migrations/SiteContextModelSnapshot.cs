@@ -26,19 +26,23 @@ namespace PressPlay.Migrations
 
                     b.Property<string>("AlbumTitle");
 
+                    b.Property<int>("ArtistId");
+
                     b.Property<string>("ImageUrl");
 
                     b.Property<string>("RecordLabel");
 
                     b.HasKey("AlbumId");
 
+                    b.HasIndex("ArtistId");
+
                     b.ToTable("Album");
 
                     b.HasData(
-                        new { AlbumId = 1, AlbumTitle = "KOD", ImageUrl = "https://media.pitchfork.com/photos/5ad8b39b5fadaa7e89cfd808/2:1/w_1000/KOD%20J.%20Cole.jpg", RecordLabel = "DreamVille" },
-                        new { AlbumId = 2, AlbumTitle = "Sweetener", ImageUrl = "https://www.udiscovermusic.com/wp-content/uploads/2018/06/Ariana-Grande-No-Tears-Left-To-Cry-packshot-cropped-web-optimised-1000.jpg", RecordLabel = "Republic Records" },
-                        new { AlbumId = 3, AlbumTitle = "missundaztood", ImageUrl = "https://images-na.ssl-images-amazon.com/images/I/81GGshIlE4L._SL1200_.jpg", RecordLabel = "Arista Records" },
-                        new { AlbumId = 4, AlbumTitle = "Rust In Peace", ImageUrl = "https://i.ytimg.com/vi/SW6uObWJRH4/maxresdefault.jpg", RecordLabel = "Capitol Records" }
+                        new { AlbumId = 1, AlbumTitle = "KOD", ArtistId = 1, ImageUrl = "https://media.pitchfork.com/photos/5ad8b39b5fadaa7e89cfd808/2:1/w_1000/KOD%20J.%20Cole.jpg", RecordLabel = "DreamVille" },
+                        new { AlbumId = 2, AlbumTitle = "Sweetener", ArtistId = 2, ImageUrl = "https://www.udiscovermusic.com/wp-content/uploads/2018/06/Ariana-Grande-No-Tears-Left-To-Cry-packshot-cropped-web-optimised-1000.jpg", RecordLabel = "Republic Records" },
+                        new { AlbumId = 3, AlbumTitle = "missundaztood", ArtistId = 3, ImageUrl = "https://images-na.ssl-images-amazon.com/images/I/81GGshIlE4L._SL1200_.jpg", RecordLabel = "Arista Records" },
+                        new { AlbumId = 4, AlbumTitle = "Rust In Peace", ArtistId = 4, ImageUrl = "https://i.ytimg.com/vi/SW6uObWJRH4/maxresdefault.jpg", RecordLabel = "Capitol Records" }
                     );
                 });
 
@@ -72,8 +76,6 @@ namespace PressPlay.Migrations
 
                     b.Property<int>("AlbumId");
 
-                    b.Property<int>("ArtistId");
-
                     b.Property<int>("Duration");
 
                     b.Property<string>("Link");
@@ -82,14 +84,32 @@ namespace PressPlay.Migrations
 
                     b.HasKey("SongId");
 
+                    b.HasIndex("AlbumId");
+
                     b.ToTable("Song");
 
                     b.HasData(
-                        new { SongId = 1, AlbumId = 1, ArtistId = 1, Duration = 132, Link = "https://www.youtube.com/watch?v=2hMy0rnHQv0", SongTitle = "Motiv8" },
-                        new { SongId = 2, AlbumId = 2, ArtistId = 2, Duration = 182, Link = "https://www.youtube.com/watch?v=-_aGvdfLTKY", SongTitle = "Nasa" },
-                        new { SongId = 3, AlbumId = 3, ArtistId = 3, Duration = 191, Link = "https://www.youtube.com/watch?v=mW1dbiD_zDk", SongTitle = "Get the Party Started" },
-                        new { SongId = 4, AlbumId = 4, ArtistId = 4, Duration = 299, Link = "https://www.youtube.com/watch?v=Lcm9qqo_qB0", SongTitle = "Tornado of Souls" }
+                        new { SongId = 1, AlbumId = 1, Duration = 132, Link = "https://www.youtube.com/watch?v=2hMy0rnHQv0", SongTitle = "Motiv8" },
+                        new { SongId = 2, AlbumId = 2, Duration = 182, Link = "https://www.youtube.com/watch?v=-_aGvdfLTKY", SongTitle = "Nasa" },
+                        new { SongId = 3, AlbumId = 3, Duration = 191, Link = "https://www.youtube.com/watch?v=mW1dbiD_zDk", SongTitle = "Get the Party Started" },
+                        new { SongId = 4, AlbumId = 4, Duration = 299, Link = "https://www.youtube.com/watch?v=Lcm9qqo_qB0", SongTitle = "Tornado of Souls" }
                     );
+                });
+
+            modelBuilder.Entity("PressPlay.Models.Album", b =>
+                {
+                    b.HasOne("PressPlay.Models.Artist", "Artist")
+                        .WithMany("Albums")
+                        .HasForeignKey("ArtistId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("PressPlay.Models.Song", b =>
+                {
+                    b.HasOne("PressPlay.Models.Album", "Album")
+                        .WithMany("Song")
+                        .HasForeignKey("AlbumId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
