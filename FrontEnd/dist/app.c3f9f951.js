@@ -140,8 +140,8 @@ exports.default = Artists;
 
 function Artists(artistlist) {
   return "\n    <h1>Artists</h1>\n    <ul>\n        ".concat(artistlist.map(function (artist) {
-    return "\n            <li>\n                <p>".concat(artist.artistName, "</p>\n                <img src=").concat(artist.imageUrl, ">\n                <input class='delete-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n                <button class='delete-artistId__delete'>Delete Artist</button> \n                <input class='select-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n            <button class='select-artistId__select'>Select Artist</button>               \n            </li>\n        ");
-  }).join(""), "\n\n        </ul>\n        <section> \n            <input type=\"text\" class=\"add-artist_artistname\" placeholder=\"Add an artist name.\">\n            <input type=\"text\" class=\"add-artist_artistimage\" placeholder=\"Add an artist Image.\">\n            <button class=\"add-artist_submit\"> Submit</button>\n        </section>\n\n    ");
+    return "\n            <li>\n                <p>".concat(artist.artistName, "</p>\n                <img src=").concat(artist.imageUrl, ">\n                <input class='delete-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n                <button class='delete-artistId__delete'>Delete Artist</button> \n                <input class='select-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n                <button class='select-artistId__select'>Select Artist</button>    \n                \n                \n                <section> \n                <input class='edit-artist__artistId' type='hidden' value=\"").concat(artist.artistId, "\">\n                <input type=\"text\" class=\"edit-artist_name\" placeholder=\"Edit an artist name.\">\n                <button class=\"edit-artist_submit\">Submit</button>\n                </section>          \n            </li>\n        ");
+  }).join(""), "\n\n        </ul>\n        <section> \n            <input type=\"text\" class=\"add-artist_artistname\" placeholder=\"Add an artist name.\">\n            <input type=\"text\" class=\"add-artist_artistimage\" placeholder=\"Add an artist Image.\">\n            <button class=\"add-artist_submit\"> Submit</button>\n        </section>\n\n        \n\n\n\n    ");
 }
 
 ;
@@ -155,8 +155,8 @@ exports.default = Albums;
 
 function Albums(albumlist) {
   return "\n    <h1>Albums</h1>\n    <ul>\n        ".concat(albumlist.map(function (album) {
-    return "\n            <li>\n                <p>".concat(album.albumTitle, "</p>\n                <img src=\"").concat(album.imageUrl, "\">\n                <p>").concat(album.recordLabel, "</p>               \n            </li>\n        ");
-  }).join(""), "\n    </ul>\n");
+    return "\n            <li>\n                <p>".concat(album.albumTitle, "</p>\n                <img src=\"").concat(album.imageUrl, "\">\n                <p>").concat(album.recordLabel, "</p>   \n                <input class='delete-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n                <button class='delete-albumId__delete'>Delete Album</button> \n                <input class='select-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n                <button class='select-albumId__select'>Select Album</button>    \n                \n                \n                <section> \n                <input class='edit-album__albumId' type='hidden' value=\"").concat(album.albumId, "\">\n                <input type=\"text\" class=\"edit-album_name\" placeholder=\"Edit an album name.\">\n                <button class=\"edit-album_submit\">Submit</button>\n                </section>                      \n            </li>\n        ");
+  }).join(""), "\n    </ul>\n    <section> \n            <input type=\"text\" class=\"add-album_albumname\" placeholder=\"Add an album title.\">\n            <input type=\"text\" class=\"add-album_albumimage\" placeholder=\"Add an album Image.\">\n            <button class=\"add-album_submit\"> Submit</button>\n        </section>\n");
 }
 
 ;
@@ -225,10 +225,27 @@ function deleteRequest(location, requestBody, callback) {
   });
 }
 
+function putRequest(location, requestBody, callback) {
+  fetch(location, {
+    method: "PUT",
+    body: JSON.stringify(requestBody),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (response) {
+    return response.json();
+  }).then(function (jsonData) {
+    return callback(jsonData);
+  }).catch(function (err) {
+    return console.log(err);
+  });
+}
+
 var _default = {
   getRequest: getRequest,
   postRequest: postRequest,
-  deleteRequest: deleteRequest
+  deleteRequest: deleteRequest,
+  putRequest: putRequest
 };
 exports.default = _default;
 },{}],"js/component/AlbumsByArtist.js":[function(require,module,exports) {
@@ -333,6 +350,22 @@ function artists() {
       });
     }
   });
+  document.querySelector('#app').addEventListener("click", function () {
+    if (event.target.classList.contains('edit-artist_submit')) {
+      var artist = event.target.parentElement.querySelector('.edit-artist__artistId').value; // const artistimage = event.target.parentElement.querySelector('.edit-artist_artistimage').value;
+
+      var name = event.target.parentElement.querySelector('.edit-artist_name').value;
+      var data = {
+        artistId: artist,
+        artistName: name // ImageUrl: artistimage
+
+      };
+
+      _apiActions.default.putRequest("https://localhost:44378/api/artists/" + artist, data, function (artistlist) {
+        document.querySelector('#app').innerHTML = (0, _Artists.default)(artistlist);
+      });
+    }
+  });
 }
 
 ;
@@ -344,6 +377,56 @@ function albums() {
     _apiActions.default.getRequest("https://localhost:44378/api/albums", function (albumlist) {
       app.innerHTML = (0, _Albums.default)(albumlist);
     });
+  });
+  document.querySelector('#app').addEventListener("click", function () {
+    if (event.target.classList.contains('add-album_submit')) {
+      var album = event.target.parentElement.querySelector('.add-album_albumname').value;
+      var albumimage = event.target.parentElement.querySelector('.add-album_albumimage').value;
+      var data = {
+        albumId: 0,
+        albumName: album,
+        ImageUrl: albumimage
+      };
+
+      _apiActions.default.postRequest("https://localhost:44378/api/albums", data, function (albumlist) {
+        document.querySelector('#app').innerHTML = (0, _Albums.default)(albumlist);
+      });
+    }
+  });
+  document.querySelector('#app').addEventListener("click", function () {
+    if (event.target.classList.contains("delete-albumId__delete")) {
+      var album = event.target.parentElement.querySelector(".delete-album__id").value;
+
+      _apiActions.default.deleteRequest("https://localhost:44378/api/albums/" + album, album, function (albums) {
+        document.querySelector('#app').innerHTML = (0, _Albums.default)(albums);
+      });
+    }
+  });
+  document.querySelector('#app').addEventListener("click", function () {
+    if (event.target.classList.contains('edit-album_submit')) {
+      var album = event.target.parentElement.querySelector('.edit-album__albumId').value; // const albumimage = event.target.parentElement.querySelector('.edit-album_albumimage').value;
+
+      var name = event.target.parentElement.querySelector('.edit-album_name').value;
+      var data = {
+        albumId: album,
+        albumName: name // ImageUrl: albumimage
+
+      };
+
+      _apiActions.default.putRequest("https://localhost:44378/api/albums/" + album, data, function (albumlist) {
+        document.querySelector('#app').innerHTML = (0, _Albums.default)(albumlist);
+      });
+    }
+  });
+  document.querySelector('#app').addEventListener("click", function () {
+    if (event.target.classList.contains("select-albumId__select")) {
+      var albumId = event.target.parentElement.querySelector(".select-album__id").value;
+      console.log(albumId);
+
+      _apiActions.default.getRequest("https://localhost:44378/api/songs/" + albumId, function (albums) {
+        document.querySelector('#app').innerHTML = (0, _SongByAlbum.default)(albums);
+      });
+    }
   });
 }
 
@@ -412,7 +495,9 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "61683" + '/');
+
 
   ws.onmessage = function (event) {
     checkedAssets = {};
