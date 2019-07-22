@@ -37,7 +37,7 @@ namespace PressPlay.Controllers
 
         // PUT: api/Albums/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAlbum([FromRoute] int id, [FromBody] Album album)
+        public async Task<ActionResult<IEnumerable<Album>>> PutAlbum([FromRoute] int id, [FromBody] Album album)
         {
             if (!ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace PressPlay.Controllers
                 }
             }
 
-            return NoContent();
+            return _context.Album;
         }
 
         // POST: api/Albums
