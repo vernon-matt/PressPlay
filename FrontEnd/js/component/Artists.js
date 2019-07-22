@@ -10,7 +10,14 @@ export default function Artists(artistlist){
                 <input class='delete-artist__id' type='hidden' value="${artist.artistId}">
                 <button class='delete-artistId__delete'>Delete Artist</button> 
                 <input class='select-artist__id' type='hidden' value="${artist.artistId}">
-            <button class='select-artistId__select'>Select Artist</button>               
+                <button class='select-artistId__select'>Select Artist</button>    
+                
+                
+                <section> 
+                <input class='edit-artist__artistId' type='hidden' value="${artist.artistId}">
+                <input type="text" class="edit-artist_name" placeholder="Edit an artist name.">
+                <button class="edit-artist_submit">Submit</button>
+                </section>          
             </li>
         `;
     })
@@ -22,6 +29,10 @@ export default function Artists(artistlist){
             <input type="text" class="add-artist_artistimage" placeholder="Add an artist Image.">
             <button class="add-artist_submit"> Submit</button>
         </section>
+
+        
+
+
 
     `
     };

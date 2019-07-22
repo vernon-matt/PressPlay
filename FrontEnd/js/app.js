@@ -61,6 +61,23 @@ function artists(){
             );
         }
       });
+
+      document.querySelector('#app').addEventListener("click", function(){
+        if(event.target.classList.contains('edit-artist_submit')){
+            const artist = event.target.parentElement.querySelector('.edit-artist__artistId').value;
+            // const artistimage = event.target.parentElement.querySelector('.edit-artist_artistimage').value;
+            const name = event.target.parentElement.querySelector('.edit-artist_name').value;
+            const data = {
+                artistId: artist,
+                artistName: name,
+                // ImageUrl: artistimage
+            }
+            ApiAction.putRequest("https://localhost:44378/api/artists/"+ artist, data, artistlist => {
+                document.querySelector('#app').innerHTML = Artists(artistlist);
+            })
+        }
+    })
+      
       
         
         

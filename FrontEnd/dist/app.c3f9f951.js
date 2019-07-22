@@ -140,8 +140,8 @@ exports.default = Artists;
 
 function Artists(artistlist) {
   return "\n    <h1>Artists</h1>\n    <ul>\n        ".concat(artistlist.map(function (artist) {
-    return "\n            <li>\n                <p>".concat(artist.artistName, "</p>\n                <img src=").concat(artist.imageUrl, ">\n                <input class='delete-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n                <button class='delete-artistId__delete'>Delete Artist</button> \n                <input class='select-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n            <button class='select-artistId__select'>Select Artist</button>               \n            </li>\n        ");
-  }).join(""), "\n\n        </ul>\n        <section> \n            <input type=\"text\" class=\"add-artist_artistname\" placeholder=\"Add an artist name.\">\n            <input type=\"text\" class=\"add-artist_artistimage\" placeholder=\"Add an artist Image.\">\n            <button class=\"add-artist_submit\"> Submit</button>\n        </section>\n\n    ");
+    return "\n            <li>\n                <p>".concat(artist.artistName, "</p>\n                <img src=").concat(artist.imageUrl, ">\n                <input class='delete-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n                <button class='delete-artistId__delete'>Delete Artist</button> \n                <input class='select-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n                <button class='select-artistId__select'>Select Artist</button>    \n                \n                \n                <section> \n                <input class='edit-artist__artistId' type='hidden' value=\"").concat(artist.artistId, "\">\n                <input type=\"text\" class=\"edit-artist_name\" placeholder=\"Edit an artist name.\">\n                <button class=\"edit-artist_submit\">Submit</button>\n                </section>          \n            </li>\n        ");
+  }).join(""), "\n\n        </ul>\n        <section> \n            <input type=\"text\" class=\"add-artist_artistname\" placeholder=\"Add an artist name.\">\n            <input type=\"text\" class=\"add-artist_artistimage\" placeholder=\"Add an artist Image.\">\n            <button class=\"add-artist_submit\"> Submit</button>\n        </section>\n\n        \n\n\n\n    ");
 }
 
 ;
@@ -225,10 +225,27 @@ function deleteRequest(location, requestBody, callback) {
   });
 }
 
+function putRequest(location, requestBody, callback) {
+  fetch(location, {
+    method: "PUT",
+    body: JSON.stringify(requestBody),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (response) {
+    return response.json();
+  }).then(function (jsonData) {
+    return callback(jsonData);
+  }).catch(function (err) {
+    return console.log(err);
+  });
+}
+
 var _default = {
   getRequest: getRequest,
   postRequest: postRequest,
-  deleteRequest: deleteRequest
+  deleteRequest: deleteRequest,
+  putRequest: putRequest
 };
 exports.default = _default;
 },{}],"js/component/AlbumsByArtist.js":[function(require,module,exports) {
@@ -333,6 +350,22 @@ function artists() {
       });
     }
   });
+  document.querySelector('#app').addEventListener("click", function () {
+    if (event.target.classList.contains('edit-artist_submit')) {
+      var artist = event.target.parentElement.querySelector('.edit-artist__artistId').value; // const artistimage = event.target.parentElement.querySelector('.edit-artist_artistimage').value;
+
+      var name = event.target.parentElement.querySelector('.edit-artist_name').value;
+      var data = {
+        artistId: artist,
+        artistName: name // ImageUrl: artistimage
+
+      };
+
+      _apiActions.default.putRequest("https://localhost:44378/api/artists/" + artist, data, function (artistlist) {
+        document.querySelector('#app').innerHTML = (0, _Artists.default)(artistlist);
+      });
+    }
+  });
 }
 
 ;
@@ -412,7 +445,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52991" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53956" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
