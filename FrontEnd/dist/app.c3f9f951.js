@@ -155,8 +155,8 @@ exports.default = Albums;
 
 function Albums(albumlist) {
   return "\n    <h1>Albums</h1>\n    <ul>\n        ".concat(albumlist.map(function (album) {
-    return "\n            <li>\n                <p>".concat(album.albumTitle, "</p>\n                <img src=\"").concat(album.imageUrl, "\">\n                <p>").concat(album.recordLabel, "</p>   \n                <input class='delete-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n                <button class='delete-albumId__delete'>Delete Album</button> \n                <input class='select-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n                <button class='select-albumId__select'>Select Album</button>    \n                \n                \n                <section> \n                <input class='edit-album__albumId' type='hidden' value=\"").concat(album.albumId, "\">\n                <input type=\"text\" class=\"edit-album_name\" placeholder=\"Edit an album name.\">\n                <button class=\"edit-album_submit\">Submit</button>\n                </section>                      \n            </li>\n        ");
-  }).join(""), "\n    </ul>\n    <section> \n            <input type=\"text\" class=\"add-album_albumname\" placeholder=\"Add an album title.\">\n            <input type=\"text\" class=\"add-album_albumimage\" placeholder=\"Add an album Image.\">\n            <button class=\"add-album_submit\"> Submit</button>\n        </section>\n");
+    return "\n            <li>\n                <p>".concat(album.albumTitle, "</p>\n                <img class='select-albumId__select' src=\"").concat(album.imageUrl, "\">\n                <p>").concat(album.recordLabel, "</p>   \n                <input class='select-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n                               \n            </li>\n        ");
+  }).join(""), "\n    </ul>\n");
 }
 
 ;
@@ -170,7 +170,7 @@ exports.default = Songs;
 
 function Songs(songlist) {
   return "\n    <h1>Songs</h1>\n    <ul>\n    ".concat(songlist.map(function (song) {
-    return "\n        <li>\n            <p> ".concat(song.songTitle, "</p>\n            <p>").concat(song.songId, "</p>   \n            <p>").concat(song.duration, "</p>\n            <a href = \"").concat(song.link, "\">YouTube Link</a>         \n        </li>\n    ");
+    return "\n        <li>\n            <p> ".concat(song.songTitle, "</p>\n            <p>").concat(song.songId, "</p>   \n            <p>").concat(song.duration, "</p>\n            <a href = \"").concat(song.link, "\">YouTube Link</a>1         \n        </li>\n    ");
   }).join(""), "\n    </ul>\n");
 }
 
@@ -256,10 +256,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = AlbumsByArtist;
 
-function AlbumsByArtist(albumsbyid) {
+function AlbumsByArtist(albumsbyid, artistId) {
   return "\n    \n    <ul>\n    ".concat(albumsbyid.map(function (album) {
-    return "\n        \n        <li>\n            <p>".concat(album.albumTitle, "</p>\n            <img src=\"").concat(album.imageUrl, "\">\n            <p>").concat(album.recordLabel, "</p>  \n            <input class='select-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n            <button class='select-albumId__select'>Select Album</button>                                      \n        </li>\n    ");
-  }).join(""), "\n    </ul>\n    ");
+    return "\n        \n        \n        <li>\n            <p>".concat(album.albumTitle, "</p>\n            <img src=\"").concat(album.imageUrl, "\">\n            <p>").concat(album.recordLabel, "</p>  \n            <input class='select-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n            <button class='select-albumId__select'>Select Album</button>\n            <input class='delete-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n            <button class='delete-albumId__delete'>Delete Album</button>    \n            <input class='edit-album__albumId' type='hidden' value=\"").concat(album.albumId, "\">\n            <input class='edit-album_artistId' type='hidden' value=\"").concat(artistId, "\">\n            <input type=\"text\" class=\"edit-album_name\" placeholder=\"Edit an album name.\">\n            <input type=\"text\" class=\"edit-album_label\" placeholder=\"Edit an album label.\">\n            <button class=\"edit-album_submit\">Edit Album</button>                                  \n            </li>\n            ");
+  }).join(""), "\n    </ul>\n    <section> \n        <input class='add-album_artistId' type='hidden' value=\"").concat(artistId, "\">\n        <input type=\"text\" class=\"add-album_albumname\" placeholder=\"Add an album title.\">\n        <input type=\"text\" class=\"add-album_albumimage\" placeholder=\"Add an album Image.\">\n        <button class=\"add-album_submit\"> Submit</button>\n    </section>\n    ");
 }
 
 ;
@@ -379,13 +379,38 @@ function albums() {
     });
   });
   document.querySelector('#app').addEventListener("click", function () {
+    if (event.target.classList.contains("select-albumId__select")) {
+      var albumId = event.target.parentElement.querySelector(".select-album__id").value;
+      console.log(albumId);
+
+      _apiActions.default.getRequest("https://localhost:44378/api/songs/" + albumId, function (albums) {
+        document.querySelector('#app').innerHTML = (0, _SongByAlbum.default)(albums);
+      });
+    }
+  });
+}
+
+function albumsbyartist() {
+  document.querySelector('#app').addEventListener("click", function () {
+    if (event.target.classList.contains("select-artistId__select")) {
+      var artistId = event.target.parentElement.querySelector(".select-artist__id").value;
+      console.log(artistId);
+
+      _apiActions.default.getRequest("https://localhost:44378/api/albums/" + artistId, function (albums) {
+        document.querySelector('#app').innerHTML = (0, _AlbumsByArtist.default)(albums, artistId);
+      });
+    }
+  });
+  document.querySelector('#app').addEventListener("click", function () {
     if (event.target.classList.contains('add-album_submit')) {
+      var artist = event.target.parentElement.querySelector('.add-album_artistId').value;
       var album = event.target.parentElement.querySelector('.add-album_albumname').value;
       var albumimage = event.target.parentElement.querySelector('.add-album_albumimage').value;
       var data = {
+        artistId: artist,
         albumId: 0,
-        albumName: album,
-        ImageUrl: albumimage
+        albumTitle: album,
+        imageUrl: albumimage
       };
 
       _apiActions.default.postRequest("https://localhost:44378/api/albums", data, function (albumlist) {
@@ -404,40 +429,21 @@ function albums() {
   });
   document.querySelector('#app').addEventListener("click", function () {
     if (event.target.classList.contains('edit-album_submit')) {
+      var artist = event.target.parentElement.querySelector('.edit-album_artistId').value;
       var album = event.target.parentElement.querySelector('.edit-album__albumId').value; // const albumimage = event.target.parentElement.querySelector('.edit-album_albumimage').value;
 
       var name = event.target.parentElement.querySelector('.edit-album_name').value;
+      var label = event.target.parentElement.querySelector('.edit-album_label').value;
       var data = {
+        artistId: artist,
         albumId: album,
-        albumName: name // ImageUrl: albumimage
+        albumTitle: name,
+        recordLabel: label // ImageUrl: albumimage
 
       };
 
       _apiActions.default.putRequest("https://localhost:44378/api/albums/" + album, data, function (albumlist) {
         document.querySelector('#app').innerHTML = (0, _Albums.default)(albumlist);
-      });
-    }
-  });
-  document.querySelector('#app').addEventListener("click", function () {
-    if (event.target.classList.contains("select-albumId__select")) {
-      var albumId = event.target.parentElement.querySelector(".select-album__id").value;
-      console.log(albumId);
-
-      _apiActions.default.getRequest("https://localhost:44378/api/songs/" + albumId, function (albums) {
-        document.querySelector('#app').innerHTML = (0, _SongByAlbum.default)(albums);
-      });
-    }
-  });
-}
-
-function albumsbyartist() {
-  document.querySelector('#app').addEventListener("click", function () {
-    if (event.target.classList.contains("select-artistId__select")) {
-      var artistId = event.target.parentElement.querySelector(".select-artist__id").value;
-      console.log(artistId);
-
-      _apiActions.default.getRequest("https://localhost:44378/api/albums/" + artistId, function (artists) {
-        document.querySelector('#app').innerHTML = (0, _AlbumsByArtist.default)(artists);
       });
     }
   });
@@ -495,9 +501,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61683" + '/');
-
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53765" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
