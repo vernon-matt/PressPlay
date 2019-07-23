@@ -1,16 +1,18 @@
 export default function SongByArtist(songbyid){
     return `
     
-    <ul>
+    
+    <songs>
     ${songbyid.map(song => {
         return `
-        <h2> Selected Album</h2>
-        <li>
-            <p>${song.songTitle}</p>                                     
-        </li>
+        <song>
+            <sst>${song.songTitle}</sst>  
+            <sd> ${song.duration} seconds </sd>
+            <slink><a href = "${song.link}">YouTube Link</a></slink>                           
+        </song>
     `;
     })
     .join("")}
-    </ul>
+    </songs>
     `
 };

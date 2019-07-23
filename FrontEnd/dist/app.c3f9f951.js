@@ -139,9 +139,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Artists;
 
 function Artists(artistlist) {
-  return "\n    <h1>Artists</h1>\n    <ul>\n        ".concat(artistlist.map(function (artist) {
-    return "\n            <li>\n                <p>".concat(artist.artistName, "</p>\n                <img src=").concat(artist.imageUrl, ">\n                <input class='delete-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n                <button class='delete-artistId__delete'>Delete Artist</button> \n                <input class='select-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n                <button class='select-artistId__select'>Select Artist</button>    \n                \n                \n                <section> \n                <input class='edit-artist__artistId' type='hidden' value=\"").concat(artist.artistId, "\">\n                <input type=\"text\" class=\"edit-artist_name\" placeholder=\"Edit an artist name.\">\n                <button class=\"edit-artist_submit\">Submit</button>\n                </section>          \n            </li>\n        ");
-  }).join(""), "\n\n        </ul>\n        <section> \n            <input type=\"text\" class=\"add-artist_artistname\" placeholder=\"Add an artist name.\">\n            <input type=\"text\" class=\"add-artist_artistimage\" placeholder=\"Add an artist Image.\">\n            <button class=\"add-artist_submit\"> Submit</button>\n        </section>\n\n        \n\n\n\n    ");
+  return "\n    <h1>Artists</h1>\n    <artists>\n        ".concat(artistlist.map(function (artist) {
+    return "\n            <artist>\n                <an>".concat(artist.artistName, "</an>\n                <img class='select-artistId__select' src=").concat(artist.imageUrl, ">\n                <artistinput>\n                <input class='delete-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n                <button class='delete-artistId__delete'>Delete Artist</button> \n                </br>\n                <input class='select-artist__id' type='hidden' value=\"").concat(artist.artistId, "\">\n                <input class='edit-artist__artistId' type='hidden' value=\"").concat(artist.artistId, "\">\n                <input type=\"text\" class=\"edit-artist_name\" placeholder=\"Edit an artist name.\">\n                <button class=\"edit-artist_submit\">Submit</button>\n                </artistinput>        \n            </artist>\n        ");
+  }).join(""), "\n\n        </artists>\n        <addartist> \n            <input type=\"text\" class=\"add-artist_artistname\" placeholder=\"Add an artist name.\">\n            <input type=\"text\" class=\"add-artist_artistimage\" placeholder=\"Add an artist Image.\">\n            <button class=\"add-artist_submit\"> Submit</button>\n        </addartist>\n\n        \n\n\n\n    ");
 }
 
 ;
@@ -154,9 +154,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Albums;
 
 function Albums(albumlist) {
-  return "\n    <h1>Albums</h1>\n    <ul>\n        ".concat(albumlist.map(function (album) {
-    return "\n            <li>\n                <p>".concat(album.albumTitle, "</p>\n                <img class='select-albumId__select' src=\"").concat(album.imageUrl, "\">\n                <p>").concat(album.recordLabel, "</p>   \n                <input class='select-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n                               \n            </li>\n        ");
-  }).join(""), "\n    </ul>\n");
+  return "\n    <h1>Albums</h1>\n    <albums>\n        ".concat(albumlist.map(function (album) {
+    return "\n            <album>\n                <atitle>".concat(album.albumTitle, "</atitle>\n                <img class='select-albumId__select' src=\"").concat(album.imageUrl, "\">\n                <arl>").concat(album.recordLabel, "</arl>   \n                <input class='select-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n            </album>                         \n        ");
+  }).join(""), "\n    </albums>\n");
 }
 
 ;
@@ -257,9 +257,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = AlbumsByArtist;
 
 function AlbumsByArtist(albumsbyid, artistId) {
-  return "\n    \n    <ul>\n    ".concat(albumsbyid.map(function (album) {
-    return "\n        \n        \n        <li>\n            <p>".concat(album.albumTitle, "</p>\n            <img src=\"").concat(album.imageUrl, "\">\n            <p>").concat(album.recordLabel, "</p>  \n            <input class='select-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n            <button class='select-albumId__select'>Select Album</button>\n            <input class='delete-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n            <button class='delete-albumId__delete'>Delete Album</button>    \n            <input class='edit-album__albumId' type='hidden' value=\"").concat(album.albumId, "\">\n            <input class='edit-album_artistId' type='hidden' value=\"").concat(artistId, "\">\n            <input type=\"text\" class=\"edit-album_name\" placeholder=\"Edit an album name.\">\n            <input type=\"text\" class=\"edit-album_label\" placeholder=\"Edit an album label.\">\n            <button class=\"edit-album_submit\">Edit Album</button>                                  \n            </li>\n            ");
-  }).join(""), "\n    </ul>\n    <section> \n        <input class='add-album_artistId' type='hidden' value=\"").concat(artistId, "\">\n        <input type=\"text\" class=\"add-album_albumname\" placeholder=\"Add an album title.\">\n        <input type=\"text\" class=\"add-album_albumimage\" placeholder=\"Add an album Image.\">\n        <button class=\"add-album_submit\"> Submit</button>\n    </section>\n    ");
+  return "\n    \n    <albumsbyid>\n    ".concat(albumsbyid.map(function (album) {
+    return "\n\n        <albumbyid>\n            <p>".concat(album.albumTitle, "</p>\n            <img class='select-albumId__select' src=\"").concat(album.imageUrl, "\">\n            <p>").concat(album.recordLabel, "</p>\n            <albumbyidinput>  \n            <input class='select-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n            <input class='delete-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n            <button class='delete-albumId__delete'>Delete Album</button>\n            </br>    \n            <input class='edit-album__albumId' type='hidden' value=\"").concat(album.albumId, "\">\n            <input class='edit-album_artistId' type='hidden' value=\"").concat(artistId, "\">\n            <input type=\"text\" class=\"edit-album_name\" placeholder=\"Edit an album name.\">\n            <input type=\"text\" class=\"edit-album_label\" placeholder=\"Edit an album label.\">\n            <button class=\"edit-album_submit\">Edit Album</button>\n            </albumbyidinput>                                  \n            </albumbyid>\n            ");
+  }).join(""), "\n    </albumsbyid>\n    <addalbum>\n        <h2> Add an album </h2> \n        <input class='add-album_artistId' type='hidden' value=\"").concat(artistId, "\">\n        <input type=\"text\" class=\"add-album_albumname\" placeholder=\"Add an album title.\">\n        <input type=\"text\" class=\"add-album_albumimage\" placeholder=\"Add an album Image.\">\n        <button class=\"add-album_submit\"> Submit</button>\n    </addalbum>\n    ");
 }
 
 ;
@@ -272,9 +272,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = SongByArtist;
 
 function SongByArtist(songbyid) {
-  return "\n    \n    <ul>\n    ".concat(songbyid.map(function (song) {
-    return "\n        <h2> Selected Album</h2>\n        <li>\n            <p>".concat(song.songTitle, "</p>                                     \n        </li>\n    ");
-  }).join(""), "\n    </ul>\n    ");
+  return "\n    \n    \n    <songs>\n    ".concat(songbyid.map(function (song) {
+    return "\n        <song>\n            <sst>".concat(song.songTitle, "</sst>  \n            <sd> ").concat(song.duration, " seconds </sd>\n            <slink><a href = \"").concat(song.link, "\">YouTube Link</a></slink>                           \n        </song>\n    ");
+  }).join(""), "\n    </songs>\n    ");
 }
 
 ;
@@ -501,7 +501,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53765" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52435" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

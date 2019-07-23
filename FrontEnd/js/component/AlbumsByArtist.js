@@ -1,34 +1,36 @@
 export default function AlbumsByArtist(albumsbyid, artistId){
     return `
     
-    <ul>
+    <albumsbyid>
     ${albumsbyid.map(album => {
         return `
-        
-        
-        <li>
+
+        <albumbyid>
             <p>${album.albumTitle}</p>
-            <img src="${album.imageUrl}">
-            <p>${album.recordLabel}</p>  
+            <img class='select-albumId__select' src="${album.imageUrl}">
+            <p>${album.recordLabel}</p>
+            <albumbyidinput>  
             <input class='select-album__id' type='hidden' value="${album.albumId}">
-            <button class='select-albumId__select'>Select Album</button>
             <input class='delete-album__id' type='hidden' value="${album.albumId}">
-            <button class='delete-albumId__delete'>Delete Album</button>    
+            <button class='delete-albumId__delete'>Delete Album</button>
+            </br>    
             <input class='edit-album__albumId' type='hidden' value="${album.albumId}">
             <input class='edit-album_artistId' type='hidden' value="${artistId}">
             <input type="text" class="edit-album_name" placeholder="Edit an album name.">
             <input type="text" class="edit-album_label" placeholder="Edit an album label.">
-            <button class="edit-album_submit">Edit Album</button>                                  
-            </li>
+            <button class="edit-album_submit">Edit Album</button>
+            </albumbyidinput>                                  
+            </albumbyid>
             `;
     })
     .join("")}
-    </ul>
-    <section> 
+    </albumsbyid>
+    <addalbum>
+        <h2> Add an album </h2> 
         <input class='add-album_artistId' type='hidden' value="${artistId}">
         <input type="text" class="add-album_albumname" placeholder="Add an album title.">
         <input type="text" class="add-album_albumimage" placeholder="Add an album Image.">
         <button class="add-album_submit"> Submit</button>
-    </section>
+    </addalbum>
     `
 };

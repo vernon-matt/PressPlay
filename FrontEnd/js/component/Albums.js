@@ -1,20 +1,18 @@
 export default function Albums(albumlist){
     return `
     <h1>Albums</h1>
-    <ul>
+    <albums>
         ${albumlist.map(album => {
         return `
-            <li>
-                <p>${album.albumTitle}</p>
+            <album>
+                <atitle>${album.albumTitle}</atitle>
                 <img class='select-albumId__select' src="${album.imageUrl}">
-                <p>${album.recordLabel}</p>   
+                <arl>${album.recordLabel}</arl>   
                 <input class='select-album__id' type='hidden' value="${album.albumId}">
-                               
-            </li>
+            </album>                         
         `;
-    
     })
     .join("")}
-    </ul>
+    </albums>
 `
 };
