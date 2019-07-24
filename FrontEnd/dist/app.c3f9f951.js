@@ -169,9 +169,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Songs;
 
 function Songs(songlist) {
-  return "\n    <h1>Songs</h1>\n    <ul>\n    ".concat(songlist.map(function (song) {
-    return "\n        <li>\n            <p> ".concat(song.songTitle, "</p>\n            <p>").concat(song.songId, "</p>   \n            <p>").concat(song.duration, "</p>\n            <a href = \"").concat(song.link, "\">YouTube Link</a>1         \n        </li>\n    ");
-  }).join(""), "\n    </ul>\n");
+  return "\n    <h1>Songs</h1>\n    <songs>\n    ".concat(songlist.map(function (song) {
+    return "\n    <song>\n        <songvid>\n        <sst>".concat(song.songTitle, " \n        <sd> ").concat(song.duration, " seconds </sd>\n        </sst> \n        <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/").concat(song.link, "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </songvid>\n    </song>\n    ");
+  }).join(""), "\n    </songs>\n    ");
 }
 
 ;
@@ -272,8 +272,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = SongByArtist;
 
 function SongByArtist(songbyid) {
-  return "\n    \n    \n    <songs>\n    ".concat(songbyid.map(function (song) {
-    return "\n        <song>\n            <sst>".concat(song.songTitle, "</sst>  \n            <sd> ").concat(song.duration, " seconds </sd>\n            <slink><a href = \"").concat(song.link, "\">YouTube Link</a></slink>                           \n        </song>\n    ");
+  return "\n    \n\n    <songs>\n    ".concat(songbyid.map(function (song) {
+    return "\n    <song>\n        <songvid>\n        <sst>".concat(song.songTitle, " \n        <sd> ").concat(song.duration, " seconds </sd>\n        </sst> \n        <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/").concat(song.link, "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </songvid>\n    </song>\n    ");
   }).join(""), "\n    </songs>\n    ");
 }
 
@@ -501,7 +501,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52435" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64999" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
