@@ -135,9 +135,8 @@ function albumsbyartist(){
            }
            ApiAction.postRequest("https://localhost:44378/api/albums/", data, albumlist => {
             console.log(albumlist)
-            document.querySelector('#app').innerHTML = AlbumsByArtist(albumlist);
-           })
-           
+            document.querySelector('#app').innerHTML = AlbumsByArtist(albumlist, data.artistId);
+           })      
        }
       })
 
@@ -204,7 +203,7 @@ function songbyalbum(){
                 link: link
             }
             ApiAction.postRequest("https://localhost:44378/api/songs", data, songs => {
-                document.querySelector('#app').innerHTML = SongByAlbum(songs);
+                document.querySelector('#app').innerHTML = SongByAlbum(songs, data.albumId);
             })
         }
     })

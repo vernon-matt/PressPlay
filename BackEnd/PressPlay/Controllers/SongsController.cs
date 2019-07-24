@@ -37,73 +37,42 @@ namespace PressPlay.Controllers
 
         // PUT: api/Songs/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<IEnumerable<Song>>> PutSong([FromRoute] int id, [FromBody] Song song)
+        public async Task<IEnumerable<Song>> PutSong([FromRoute] int id, [FromBody] Song song)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
-            if (id != song.SongId)
-            {
-                return BadRequest();
-            }
 
             _context.Entry(song).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!SongExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();    
 
-            return _context.Song;
+            return _context.Song.Where(r => r.AlbumId == song.AlbumId);
         }
 
         // POST: api/Songs
         [HttpPost]
-        public async Task<IActionResult> PostSong([FromBody] Song song)
+        public async Task<IEnumerable<Song>> PostSong([FromBody] Song song)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+
 
             _context.Song.Add(song);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSong", new { id = song.SongId }, song);
+            return _context.Song.Where(r => r.AlbumId == song.AlbumId);
         }
 
         // DELETE: api/Songs/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSong([FromRoute] int id)
+        public async Task<IEnumerable<Song>> DeleteSong([FromRoute] int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+
 
             var song = await _context.Song.FindAsync(id);
-            if (song == null)
-            {
-                return NotFound();
-            }
+
 
             _context.Song.Remove(song);
             await _context.SaveChangesAsync();
 
-            return Ok(song);
+            return _context.Song.Where(r => r.AlbumId == song.AlbumId);
         }
 
         private bool SongExists(int id)

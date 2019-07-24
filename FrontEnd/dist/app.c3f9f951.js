@@ -417,7 +417,7 @@ function albumsbyartist() {
 
       _apiActions.default.postRequest("https://localhost:44378/api/albums/", data, function (albumlist) {
         console.log(albumlist);
-        document.querySelector('#app').innerHTML = (0, _AlbumsByArtist.default)(albumlist);
+        document.querySelector('#app').innerHTML = (0, _AlbumsByArtist.default)(albumlist, data.artistId);
       });
     }
   });
@@ -478,7 +478,7 @@ function songbyalbum() {
       };
 
       _apiActions.default.postRequest("https://localhost:44378/api/songs", data, function (songs) {
-        document.querySelector('#app').innerHTML = (0, _SongByAlbum.default)(songs);
+        document.querySelector('#app').innerHTML = (0, _SongByAlbum.default)(songs, data.albumId);
       });
     }
   });
