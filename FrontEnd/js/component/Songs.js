@@ -6,9 +6,7 @@ export default function Songs(songlist){
     return `
         <li>
             <p> ${song.songTitle}</p>
-            <p>${song.songId}</p>   
-            <p>${song.duration}</p>
-            <a href = "${song.link}">YouTube Link</a>1         
+            <p>${song.songId}</p>          
         </li>
     `;
 })

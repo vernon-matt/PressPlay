@@ -29,6 +29,7 @@ export default function AlbumsByArtist(albumsbyid, artistId){
         <h2> Add an album </h2> 
         <input class='add-album_artistId' type='hidden' value="${artistId}">
         <input type="text" class="add-album_albumname" placeholder="Add an album title.">
+        <input type="text" class="add-album_label" placeholder="Edit an album label.">
         <input type="text" class="add-album_albumimage" placeholder="Add an album Image.">
         <button class="add-album_submit"> Submit</button>
     </addalbum>
