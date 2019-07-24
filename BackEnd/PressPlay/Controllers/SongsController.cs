@@ -37,7 +37,7 @@ namespace PressPlay.Controllers
 
         // PUT: api/Songs/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSong([FromRoute] int id, [FromBody] Song song)
+        public async Task<ActionResult<IEnumerable<Song>>> PutSong([FromRoute] int id, [FromBody] Song song)
         {
             if (!ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace PressPlay.Controllers
                 }
             }
 
-            return NoContent();
+            return _context.Song;
         }
 
         // POST: api/Songs

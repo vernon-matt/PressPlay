@@ -82,7 +82,7 @@ namespace PressPlay.Controllers
             _context.Album.Add(album);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAlbum", new { id = album.AlbumId }, album);
+            return CreatedAtAction("GetAlbum", new { id = album.ArtistId });
         }
 
         // DELETE: api/Albums/5

@@ -1,6 +1,5 @@
 export default function Albums(albumlist){
     return `
-    <h1>Albums</h1>
     <albums>
         ${albumlist.map(album => {
         return `
