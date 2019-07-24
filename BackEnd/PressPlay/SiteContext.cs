@@ -212,7 +212,7 @@ namespace PressPlay
                 {
                     SongId = 1,
                     SongTitle = "Motiv8",
-                    Link = "https://www.youtube.com/watch?v=2hMy0rnHQv0",
+                    Link = "2hMy0rnHQv0",
                     Duration = 132,
                     AlbumId = 1,
                 },
@@ -220,7 +220,7 @@ namespace PressPlay
                 {
                     SongId = 2,
                     SongTitle = "Nasa",
-                    Link = "https://www.youtube.com/watch?v=-_aGvdfLTKY",
+                    Link = "-_aGvdfLTKY",
                     Duration = 182,
                     AlbumId = 2,
                 },
@@ -228,7 +228,7 @@ namespace PressPlay
                 {
                     SongId = 3,
                     SongTitle = "Get the Party Started",
-                    Link = "https://www.youtube.com/watch?v=mW1dbiD_zDk",
+                    Link = "mW1dbiD_zDk",
                     Duration = 191,
                     AlbumId = 3,
                 },
@@ -236,7 +236,7 @@ namespace PressPlay
                 {
                     SongId = 4,
                     SongTitle = "Tornado of Souls",
-                    Link = "https://www.youtube.com/watch?v=Lcm9qqo_qB0",
+                    Link = "Lcm9qqo_qB0",
                     Duration = 299,
                     AlbumId = 4,
                 },
@@ -244,7 +244,7 @@ namespace PressPlay
                 {
                     SongId = 5,
                     SongTitle = "No Tears Left to Cry",
-                    Link = "https://www.youtube.com/watch?v=nNcDkT_AoHQ",
+                    Link = "nNcDkT_AoHQ",
                     Duration = 206,
                     AlbumId = 2,
                 },
@@ -252,7 +252,7 @@ namespace PressPlay
                 {
                     SongId = 6,
                     SongTitle = "God Is a Woman",
-                    Link = "https://www.youtube.com/watch?v=kHLHSlExFis",
+                    Link = "kHLHSlExFis",
                     Duration = 197,
                     AlbumId = 2,
                 },
@@ -260,7 +260,7 @@ namespace PressPlay
                 {
                     SongId = 7,
                     SongTitle = "Breathin",
-                    Link = "https://www.youtube.com/watch?v=kN0iD0pI3o0",
+                    Link = "kN0iD0pI3o0",
                     Duration = 198,
                     AlbumId = 2,
                 },
@@ -268,7 +268,7 @@ namespace PressPlay
                 {
                     SongId = 8,
                     SongTitle = "ATM",
-                    Link = "https://www.youtube.com/watch?v=ew7qhDBQcU4",
+                    Link = "ew7qhDBQcU4",
                     Duration = 216,
                     AlbumId = 1,
                 },
@@ -276,7 +276,7 @@ namespace PressPlay
                 {
                     SongId = 9,
                     SongTitle = "Photograph",
-                    Link = "https://www.youtube.com/watch?v=tIRi44nVNCA",
+                    Link = "tIRi44nVNCA",
                     Duration = 218,
                     AlbumId = 1,
                 },
@@ -284,7 +284,7 @@ namespace PressPlay
                 {
                     SongId = 10,
                     SongTitle = "Don't Let Me Get Me",
-                    Link = "https://www.youtube.com/watch?v=K_t9AA3Z4PE",
+                    Link = "K_t9AA3Z4PE",
                     Duration = 210,
                     AlbumId = 3,
                 },
@@ -292,7 +292,7 @@ namespace PressPlay
                 {
                     SongId = 11,
                     SongTitle = "Just like a Pill",
-                    Link = "https://www.youtube.com/watch?v=JDKGWaCglRM",
+                    Link = "JDKGWaCglRM",
                     Duration = 237,
                     AlbumId = 3,
                 },
@@ -300,7 +300,7 @@ namespace PressPlay
                 {
                     SongId = 12,
                     SongTitle = "Family Portrait",
-                    Link = "https://www.youtube.com/watch?v=eZbj_caIAUE",
+                    Link = "eZbj_caIAUE",
                     Duration = 298,
                     AlbumId = 3,
                 },
@@ -308,7 +308,7 @@ namespace PressPlay
                 {
                     SongId = 13,
                     SongTitle = "Holy Wars... The Punishment Due",
-                    Link = "https://www.youtube.com/watch?v=9d4ui9q7eDM",
+                    Link = "9d4ui9q7eDM",
                     Duration = 392,
                     AlbumId = 4,
                 },
@@ -316,7 +316,7 @@ namespace PressPlay
                 {
                     SongId = 14,
                     SongTitle = "Hangar 18",
-                    Link = "https://www.youtube.com/watch?v=B-oU2xlViRQ",
+                    Link = "B-oU2xlViRQ",
                     Duration = 314,
                     AlbumId = 4,
                 },
@@ -324,7 +324,7 @@ namespace PressPlay
                 {
                     SongId = 15,
                     SongTitle = "Play It Again",
-                    Link = "https://www.youtube.com/watch?v=ALV-QtDFpSw",
+                    Link = "ALV-QtDFpSw",
                     Duration = 227,
                     AlbumId = 5,
                 },
@@ -332,7 +332,7 @@ namespace PressPlay
                 {
                     SongId = 16,
                     SongTitle = "Hotline Bling",
-                    Link = "https://www.youtube.com/watch?v=uxpDa-c-4Mc",
+                    Link = "uxpDa-c-4Mc",
                     Duration = 267,
                     AlbumId = 6,
                 },
@@ -340,7 +340,7 @@ namespace PressPlay
                 {
                     SongId = 17,
                     SongTitle = "One Dance",
-                    Link = "https://www.youtube.com/watch?v=iAbnEUA0wpA",
+                    Link = "iAbnEUA0wpA",
                     Duration = 174,
                     AlbumId = 6,
                 },
@@ -348,7 +348,7 @@ namespace PressPlay
                 {
                     SongId = 18,
                     SongTitle = "Pop Style",
-                    Link = "https://www.youtube.com/watch?v=OJu4kkAbxHQ",
+                    Link = "OJu4kkAbxHQ",
                     Duration = 209,
                     AlbumId = 6,
                 },
@@ -356,7 +356,7 @@ namespace PressPlay
                 {
                     SongId = 19,
                     SongTitle = "Controlla",
-                    Link = "https://www.youtube.com/watch?v=PnL3sg-tq7s",
+                    Link = "PnL3sg-tq7s",
                     Duration = 245,
                     AlbumId = 6,
                 },
@@ -364,7 +364,7 @@ namespace PressPlay
                 {
                     SongId = 20,
                     SongTitle = "Formation",
-                    Link = "https://www.youtube.com/watch?v=WDZJPJV__bQ",
+                    Link = "WDZJPJV__bQ",
                     Duration = 216,
                     AlbumId = 7,
                 },
@@ -372,7 +372,7 @@ namespace PressPlay
                 {
                     SongId = 21,
                     SongTitle = "Sorry",
-                    Link = "https://www.youtube.com/watch?v=QxsmWxxouIM",
+                    Link = "QxsmWxxouIM",
                     Duration = 232,
                     AlbumId = 7,
                 },
@@ -380,7 +380,7 @@ namespace PressPlay
                 {
                     SongId = 22,
                     SongTitle = "Hold Up",
-                    Link = "https://www.youtube.com/watch?v=PeonBmeFR8o",
+                    Link = "PeonBmeFR8o",
                     Duration = 221,
                     AlbumId = 7,
                 },
@@ -388,7 +388,7 @@ namespace PressPlay
                 {
                     SongId = 23,
                     SongTitle = "Hurricane",
-                    Link = "https://www.youtube.com/watch?v=BixwVsiDdZM",
+                    Link = "BixwVsiDdZM",
                     Duration = 223,
                     AlbumId = 8,
                 },
@@ -396,7 +396,7 @@ namespace PressPlay
                 {
                     SongId = 24,
                     SongTitle = "When It Rains It Pours",
-                    Link = "https://www.youtube.com/watch?v=uXyxFMbqKYA",
+                    Link = "uXyxFMbqKYA",
                     Duration = 242,
                     AlbumId = 8,
                 },
@@ -404,7 +404,7 @@ namespace PressPlay
                 {
                     SongId = 25,
                     SongTitle = "One Number Away",
-                    Link = "https://www.youtube.com/watch?v=Ct9BFr9XBaI",
+                    Link = "Ct9BFr9XBaI",
                     Duration = 242,
                     AlbumId = 8,
                 },
@@ -412,7 +412,7 @@ namespace PressPlay
                 {
                     SongId = 26,
                     SongTitle = "She Got the Best of Me",
-                    Link = "https://www.youtube.com/watch?v=a2a9fgPI_PI",
+                    Link = "a2a9fgPI_PI",
                     Duration = 183,
                     AlbumId = 8,
                 },
@@ -420,7 +420,7 @@ namespace PressPlay
                 {
                     SongId = 27,
                     SongTitle = "Power Trip",
-                    Link = "https://www.youtube.com/watch?v=VMeirNg87AY",
+                    Link = "VMeirNg87AY",
                     Duration = 240,
                     AlbumId = 9,
                 },
@@ -428,7 +428,7 @@ namespace PressPlay
                 {
                     SongId = 28,
                     SongTitle = "Crooked Smile",
-                    Link = "https://www.youtube.com/watch?v=eCxaXqwRhvw",
+                    Link = "eCxaXqwRhvw",
                     Duration = 279,
                     AlbumId = 9,
                 },
@@ -436,7 +436,7 @@ namespace PressPlay
                 {
                     SongId = 29,
                     SongTitle = "Forbidden Fruit",
-                    Link = "https://www.youtube.com/watch?v=9-kWlUbkHS4",
+                    Link = "9-kWlUbkHS4",
                     Duration = 269,
                     AlbumId = 9,
                 },
@@ -444,7 +444,7 @@ namespace PressPlay
                 {
                     SongId = 30,
                     SongTitle = "She Knows",
-                    Link = "https://www.youtube.com/watch?v=jYdaQJzcAcw",
+                    Link = "jYdaQJzcAcw",
                     Duration = 297,
                     AlbumId = 9,
                 },
@@ -452,7 +452,7 @@ namespace PressPlay
                 {
                     SongId = 31,
                     SongTitle = "Dangerous Woman",
-                    Link = "https://www.youtube.com/watch?v=9WbCfHutDSE",
+                    Link = "9WbCfHutDSE",
                     Duration = 235,
                     AlbumId = 10,
                 },
@@ -460,7 +460,7 @@ namespace PressPlay
                 {
                     SongId = 32,
                     SongTitle = "Into You",
-                    Link = "https://www.youtube.com/watch?v=1ekZEVeXwek",
+                    Link = "1ekZEVeXwek",
                     Duration = 244,
                     AlbumId = 10,
                 },
@@ -468,7 +468,7 @@ namespace PressPlay
                 {
                     SongId = 33,
                     SongTitle = "Side to Side",
-                    Link = "https://www.youtube.com/watch?v=SXiSVQZLje8",
+                    Link = "SXiSVQZLje8",
                     Duration = 226,
                     AlbumId = 10,
                 },
@@ -476,7 +476,7 @@ namespace PressPlay
                 {
                     SongId = 34,
                     SongTitle = "Everyday",
-                    Link = "https://www.youtube.com/watch?v=LELFIuhSPCI",
+                    Link = "LELFIuhSPCI",
                     Duration = 194,
                     AlbumId = 10,
                 },
@@ -484,7 +484,7 @@ namespace PressPlay
                 {
                     SongId = 35,
                     SongTitle = "What About Us",
-                    Link = "https://www.youtube.com/watch?v=ClU3fctbGls",
+                    Link = "ClU3fctbGls",
                     Duration = 271,
                     AlbumId = 11,
                 },
@@ -492,7 +492,7 @@ namespace PressPlay
                 {
                     SongId = 36,
                     SongTitle = "Beautiful Trauma",
-                    Link = "https://www.youtube.com/watch?v=EBt_88nxG4c",
+                    Link = "EBt_88nxG4c",
                     Duration = 250,
                     AlbumId = 11,
                 },
@@ -500,7 +500,7 @@ namespace PressPlay
                 {
                     SongId = 37,
                     SongTitle = "Whatever You Want",
-                    Link = "https://www.youtube.com/watch?v=xuAH21DkJow",
+                    Link = "xuAH21DkJow",
                     Duration = 243,
                     AlbumId = 11,
                 },
@@ -508,7 +508,7 @@ namespace PressPlay
                 {
                     SongId = 38,
                     SongTitle = "Secrets",
-                    Link = "https://www.youtube.com/watch?v=gL20Eaeswfk",
+                    Link = "gL20Eaeswfk",
                     Duration = 210,
                     AlbumId = 11,
                 },
@@ -516,7 +516,7 @@ namespace PressPlay
                 {
                     SongId = 39,
                     SongTitle = "Skin o' My Teeth",
-                    Link = "https://www.youtube.com/watch?v=i1PceyvqBlg",
+                    Link = "i1PceyvqBlg",
                     Duration = 194,
                     AlbumId = 12,
                 },
@@ -524,7 +524,7 @@ namespace PressPlay
                 {
                     SongId = 40,
                     SongTitle = "Symphony of Destruction",
-                    Link = "https://www.youtube.com/watch?v=wEPKIulCEhQ",
+                    Link = "wEPKIulCEhQ",
                     Duration = 247,
                     AlbumId = 12,
                 },
@@ -532,7 +532,7 @@ namespace PressPlay
                 {
                     SongId = 41,
                     SongTitle = "Foreclosure of a Dream",
-                    Link = "https://www.youtube.com/watch?v=GIAu9xQp-zo",
+                    Link = "GIAu9xQp-zo",
                     Duration = 0,
                     AlbumId = 12,
                 },
@@ -540,7 +540,7 @@ namespace PressPlay
                 {
                     SongId = 42,
                     SongTitle = "Sweating Bullets",
-                    Link = "https://www.youtube.com/watch?v=aOnKCcjP8Qs",
+                    Link = "aOnKCcjP8Qs",
                     Duration = 269,
                     AlbumId = 12,
                 },
@@ -548,7 +548,7 @@ namespace PressPlay
                 {
                     SongId = 43,
                     SongTitle = "Kick the Dust Up",
-                    Link = "https://www.youtube.com/results?search_query=kick+the+dust-up",
+                    Link = "",
                     Duration = 191,
                     AlbumId = 13,
                 },
@@ -556,7 +556,7 @@ namespace PressPlay
                 {
                     SongId = 44,
                     SongTitle = "Strip It Down",
-                    Link = "https://www.youtube.com/watch?v=kY2pJsOZvc4",
+                    Link = "kY2pJsOZvc4",
                     Duration = 241,
                     AlbumId = 13,
                 },
@@ -564,7 +564,7 @@ namespace PressPlay
                 {
                     SongId = 45,
                     SongTitle = "Home Alone Tonight",
-                    Link = "https://www.youtube.com/watch?v=f2Exzqu2ocs",
+                    Link = "f2Exzqu2ocs",
                     Duration = 191,
                     AlbumId = 13,
                 },
@@ -572,7 +572,7 @@ namespace PressPlay
                 {
                     SongId = 46,
                     SongTitle = "Huntin', Fishin' and Lovin' Every Day",
-                    Link = "https://www.youtube.com/results?search_query=huntin+fishin+and+lovin+everyday+lyrics",
+                    Link = "",
                     Duration = 278,
                     AlbumId = 13,
                 },
@@ -580,7 +580,7 @@ namespace PressPlay
                 {
                     SongId = 47,
                     SongTitle = "The Motto",
-                    Link = "https://www.youtube.com/watch?v=BYDKK95cpfM",
+                    Link = "BYDKK95cpfM",
                     Duration = 182,
                     AlbumId = 14,
                 },
@@ -588,7 +588,7 @@ namespace PressPlay
                 {
                     SongId = 48,
                     SongTitle = "Marvins Room",
-                    Link = "https://www.youtube.com/watch?v=JDb3ZZD4bA0",
+                    Link = "JDb3ZZD4bA0",
                     Duration = 348,
                     AlbumId = 14,
                 },
@@ -596,7 +596,7 @@ namespace PressPlay
                 {
                     SongId = 49,
                     SongTitle = "Headlines",
-                    Link = "https://www.youtube.com/watch?v=cimoNqiulUE",
+                    Link = "cimoNqiulUE",
                     Duration = 236,
                     AlbumId = 14,
                 },
@@ -604,7 +604,7 @@ namespace PressPlay
                 {
                     SongId = 50,
                     SongTitle = "Make Me Proud",
-                    Link = "https://www.youtube.com/watch?v=AP6ps5CxgVk",
+                    Link = "AP6ps5CxgVk",
                     Duration = 220,
                     AlbumId = 14,
                 },
@@ -612,7 +612,7 @@ namespace PressPlay
                 {
                     SongId = 51,
                     SongTitle = "Run the World (Girls)",
-                    Link = "https://www.youtube.com/watch?v=VBmMU_iwe6U",
+                    Link = "VBmMU_iwe6U",
                     Duration = 235,
                     AlbumId = 15,
                 },
@@ -620,7 +620,7 @@ namespace PressPlay
                 {
                     SongId = 52,
                     SongTitle = "Best Thing I Never Had",
-                    Link = "https://www.youtube.com/watch?v=FHp2KgyQUFk",
+                    Link = "FHp2KgyQUFk",
                     Duration = 253,
                     AlbumId = 15,
                 },
@@ -628,7 +628,7 @@ namespace PressPlay
                 {
                     SongId = 53,
                     SongTitle = "Party",
-                    Link = "https://www.youtube.com/watch?v=XWCwc1_sYMY",
+                    Link = "XWCwc1_sYMY",
                     Duration = 245,
                     AlbumId = 15,
                 },
@@ -636,7 +636,7 @@ namespace PressPlay
                 {
                     SongId = 54,
                     SongTitle = "Love on Top",
-                    Link = "https://www.youtube.com/watch?v=Ob7vObnFUJc",
+                    Link = "Ob7vObnFUJc",
                     Duration = 267,
                     AlbumId = 15,
                 },
@@ -644,7 +644,7 @@ namespace PressPlay
                 {
                     SongId = 55,
                     SongTitle = "Beer Never Broke My Heart",
-                    Link = "https://www.youtube.com/watch?v=7Lb9dq-JZFI",
+                    Link = "7Lb9dq-JZFI",
                     Duration = 186,
                     AlbumId = 16,
                 },
@@ -652,7 +652,7 @@ namespace PressPlay
                 {
                     SongId = 56,
                     SongTitle = "Refrigerator Door",
-                    Link = "https://www.youtube.com/watch?v=zeZVQOfkITU",
+                    Link = "zeZVQOfkITU",
                     Duration = 204,
                     AlbumId = 16,
                 },
@@ -660,7 +660,7 @@ namespace PressPlay
                 {
                     SongId = 57,
                     SongTitle = "Even Though I'm Leaving",
-                    Link = "https://www.youtube.com/watch?v=8bjo95QKD3c",
+                    Link = "8bjo95QKD3c",
                     Duration = 225,
                     AlbumId = 16,
                 },
@@ -668,7 +668,7 @@ namespace PressPlay
                 {
                     SongId = 58,
                     SongTitle = "Lovin' on You",
-                    Link = "https://www.youtube.com/watch?v=x3TBvI2AZKA",
+                    Link = "x3TBvI2AZKA",
                     Duration = 195,
                     AlbumId = 16,
                 });
