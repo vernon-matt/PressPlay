@@ -20,17 +20,11 @@ export default function Artists(artistlist){
         `;
     })
     .join("")}
-
         </artists>
         <addartist> 
             <input type="text" class="add-artist_artistname" placeholder="Add an artist name.">
             <input type="text" class="add-artist_artistimage" placeholder="Add an artist Image.">
             <button class="add-artist_submit"> Submit</button>
         </addartist>
-
-        
-
-
-
     `
     };
