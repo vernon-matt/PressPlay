@@ -1,6 +1,7 @@
 export default function SongByArtist(songbyid, albumId){
     return `
     
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/U9T6YkEDkMo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     
     <songs>
     ${songbyid.map(song => {
@@ -8,7 +9,10 @@ export default function SongByArtist(songbyid, albumId){
         <song>
             <sst>${song.songTitle}</sst>  
             <sd> ${song.duration} seconds </sd>
-            <slink><a href = "${song.link}">YouTube Link</a></slink>  
+            
+
+
+
          <songbyidinput>  
             <input class='select-song__id' type='hidden' value="${song.songId}">
             <input class='delete-song__id' type='hidden' value="${song.songId}">

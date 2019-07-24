@@ -1,6 +1,5 @@
 export default function Artists(artistlist){
     return `
-    <h1>Artists</h1>
     <artists>
         ${artistlist.map(artist => {
         return `
@@ -10,6 +9,7 @@ export default function Artists(artistlist){
                 <artistinput>
                 <input class='delete-artist__id' type='hidden' value="${artist.artistId}">
                 <button class='delete-artistId__delete'>Delete Artist</button> 
+                </br>
                 </br>
                 <input class='select-artist__id' type='hidden' value="${artist.artistId}">
                 <input class='edit-artist__artistId' type='hidden' value="${artist.artistId}">
