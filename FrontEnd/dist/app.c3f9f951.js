@@ -259,7 +259,7 @@ exports.default = AlbumsByArtist;
 function AlbumsByArtist(albumsbyid, artistId) {
   return "\n    \n    <albumsbyid>\n    ".concat(albumsbyid.map(function (album) {
     return "\n\n        <albumbyid>\n            <p>".concat(album.albumTitle, "</p>\n            <img class='select-albumId__select' src=\"").concat(album.imageUrl, "\">\n            <p>").concat(album.recordLabel, "</p>\n            <albumbyidinput>  \n            <input class='select-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n            <input class='delete-album__id' type='hidden' value=\"").concat(album.albumId, "\">\n            <button class='delete-albumId__delete'>Delete Album</button>\n            </br>    \n            <input class='edit-album__albumId' type='hidden' value=\"").concat(album.albumId, "\">\n            <input class='edit-album_artistId' type='hidden' value=\"").concat(artistId, "\">\n            <input type=\"text\" class=\"edit-album_name\" placeholder=\"Edit an album name.\">\n            <input type=\"text\" class=\"edit-album_label\" placeholder=\"Edit an album label.\">\n            <button class=\"edit-album_submit\">Edit Album</button>\n            </albumbyidinput>                                  \n            </albumbyid>\n            ");
-  }).join(""), "\n    </albumsbyid>\n    <addalbum>\n        <h2> Add an album </h2> \n        <input class='add-album_artistId' type='hidden' value=\"").concat(artistId, "\">\n        <input type=\"text\" class=\"add-album_albumname\" placeholder=\"Add an album title.\">\n        <input type=\"text\" class=\"add-album_label\" placeholder=\"Edit an album label.\">\n        <input type=\"text\" class=\"add-album_albumimage\" placeholder=\"Add an album Image.\">\n        <button class=\"add-album_submit\"> Submit</button>\n    </addalbum>\n    ");
+  }).join(""), "\n    </albumsbyid>\n    <addalbum>\n        <h2 style=\"font-size: 30px;\"> Add an album </h2> \n        <input class='add-album_artistId' type='hidden' value=\"").concat(artistId, "\">\n        <input type=\"text\" class=\"add-album_albumname\" placeholder=\"Add an album title.\">\n        <input type=\"text\" class=\"add-album_label\" placeholder=\"Edit an album label.\">\n        <input type=\"text\" class=\"add-album_albumimage\" placeholder=\"Add an album Image.\">\n        <button style=\"padding: 0 2vw;\" class=\"add-album_submit\"> Submit</button>\n    </addalbum>\n    ");
 }
 
 ;
@@ -552,7 +552,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52397" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54333" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

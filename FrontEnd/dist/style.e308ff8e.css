@@ -77,10 +77,12 @@ albums {
     grid-row-gap: 5vh;
     max-width: 100vw;
     text-align: center;
+    padding-bottom: 10vh;
 }
 
 album {
     box-shadow: 2px 2px 15px gray;
+    padding-bottom: 1vh;
 }
 
 album:hover {
@@ -118,7 +120,6 @@ artist {
     text-align: center;
     box-shadow: 2px 2px 15px gray;  
     padding-bottom: 2vh;
-
 }
 
 artist:hover{
@@ -133,12 +134,12 @@ artist:hover{
 }
 
 addartist {
-    width: 100%;
-    display: block;
-    padding-top: 10vh;
-    z-index: 0;
-    justify-items: center;
+    width: 75vw;
+    display: flex;
+    padding-top: 15vh;
+    justify-content: space-around;
     text-align: center;
+    padding-bottom: 10vh;
 }
 
 button {
@@ -147,6 +148,24 @@ button {
 }
 
 artistinput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+artist button {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+input {
+    font-size: 100%;
+}
+
+artistinput input {
+    width: 90%;
 }
 
 song {
@@ -209,9 +228,10 @@ songs {
 
 albumsbyid {
     display: flex;
-    width: 90vw;
-    justify-content: space-between;
+    width: 100vw;
+    justify-content: space-around;
     padding-bottom: 20vh;
+    padding-top: 10vh;
 }
 
 albumbyid {
@@ -220,6 +240,7 @@ albumbyid {
     padding-left: 3vw;
     padding-right: 3vw;
     padding-top: 2vh;
+    width: 25vw;
 }
 
 albumbyid:hover {
@@ -246,6 +267,7 @@ songbyidinput {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    width: 100%;
 }
 
 div #app homepagee {
@@ -256,5 +278,21 @@ div #app homepagee {
     background-blend-mode: darken;
 }
 
+addsong {
+    padding-bottom: 15vh;
+}
+
+addalbum {
+    display: flex;
+    width: 90vw;
+    padding-bottom: 10vh;
+    justify-content: space-around;
+}
+
+albumbyidinput {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5vh;
+}
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */
