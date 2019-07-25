@@ -7,10 +7,12 @@ export default function SongByArtist(songbyid, albumId){
         return `
 
         <song>
+        <mainsong>
             <sst>${song.songTitle}</sst>  
             <sd> ${song.duration} seconds </sd>
-            <slink><a href = "${song.link}">YouTube Link</a></slink>  
-         <songbyidinput>  
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/${song.link}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </mainsong>
+            <songbyidinput>  
             <input class='select-song__id' type='hidden' value="${song.songId}">
             <input class='delete-song__id' type='hidden' value="${song.songId}">
             <button class='delete-songId__delete'>Delete Song</button>

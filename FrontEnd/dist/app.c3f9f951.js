@@ -126,7 +126,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Home;
 
 function Home() {
-  return "\n<h1>PressPlay</h1>\n";
+  return "\n<img src=\"https://www.moovly.com/wp-content/uploads/2017/03/Interactive-Video-Hand-pressing-play-1.jpg\" width=\"100%\" height=\"90%\" alt=\"\">\n";
 }
 
 ;
@@ -169,11 +169,9 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Songs;
 
 function Songs(songlist) {
-
   return "\n    <h1>Songs</h1>\n    <songs>\n    ".concat(songlist.map(function (song) {
     return "\n    <song>\n        <songvid>\n        <sst>".concat(song.songTitle, " \n        <sd> ").concat(song.duration, " seconds </sd>\n        </sst> \n        <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/").concat(song.link, "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </songvid>\n    </song>\n    ");
   }).join(""), "\n    </songs>\n    ");
-
 }
 
 ;
@@ -273,12 +271,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = SongByArtist;
 
-
-function SongByArtist(songbyid) {
+function SongByArtist(songbyid, albumId) {
   return "\n    \n\n    <songs>\n    ".concat(songbyid.map(function (song) {
-    return "\n    <song>\n        <songvid>\n        <sst>".concat(song.songTitle, " \n        <sd> ").concat(song.duration, " seconds </sd>\n        </sst> \n        <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/").concat(song.link, "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </songvid>\n    </song>\n    ");
-  }).join(""), "\n    </songs>\n    ");
-
+    return "\n\n        <song>\n        <mainsong>\n            <sst>".concat(song.songTitle, "</sst>  \n            <sd> ").concat(song.duration, " seconds </sd>\n            <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/").concat(song.link, "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n        </mainsong>\n            <songbyidinput>  \n            <input class='select-song__id' type='hidden' value=\"").concat(song.songId, "\">\n            <input class='delete-song__id' type='hidden' value=\"").concat(song.songId, "\">\n            <button class='delete-songId__delete'>Delete Song</button>\n            </br>    \n            <input class='edit-song__songId' type='hidden' value=\"").concat(song.songId, "\">\n            <input class='edit-song_albumId' type='hidden' value=\"").concat(albumId, "\">\n            <input type=\"text\" class=\"edit-song_title\" placeholder=\"Edit a song name.\">\n            <input type=\"text\" class=\"edit-song_duration\" placeholder=\"Edit a song duration.\">\n            <input type=\"text\" class=\"edit-song_link\" placeholder=\"Edit a song link.\">\n            <button class=\"edit-song_submit\">Edit Song</button>\n         </songbyidinput>                         \n        </song>\n    ");
+  }).join(""), "\n    </songs>\n    <addsong>\n        <h2> Add a Song </h2> \n        <input class='add-song_albumid' type='hidden' value=\"").concat(albumId, "\">\n        <input type=\"text\" class=\"add-song_songtitle\" placeholder=\"Add a song title.\">\n        <input type=\"text\" class=\"add-song_duration\" placeholder=\"Add a song duration.\">\n        <input type=\"text\" class=\"add-song_link\" placeholder=\"Add an embedded YouTube Link.\">\n        <button class=\"add-song_submit\"> Submit Song</button>\n    </addsong>\n    ");
+}
 
 ;
 },{}],"js/app.js":[function(require,module,exports) {
@@ -555,9 +552,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64999" + '/');
-
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52397" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

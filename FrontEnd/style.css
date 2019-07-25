@@ -22,7 +22,7 @@ nav ul{
     display:flex;
     flex-direction: row;
     min-width: 50%;
-    max-width: 50%;
+    max-width: 75%;
     justify-content: space-around;
     background-color: black;
     height: 8vh;
@@ -73,7 +73,7 @@ albums {
     display: grid;
     grid-template-columns: 20vw 20vw 20vw;
     grid-template-rows: auto;
-    justify-content: space-between;
+    justify-content: space-around;
     grid-row-gap: 5vh;
     max-width: 100vw;
     text-align: center;
@@ -151,7 +151,7 @@ artistinput {
 
 song {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     width: 30vw;
     text-align: left;
@@ -239,4 +239,19 @@ allsongs {
 allsong {
     display: flex;
     flex-direction: column;
+}
+
+songbyidinput {
+    padding-top: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+div #app homepagee {
+    width: 500px;
+    height: 100px;
+    background-image: url(/Images/ArianaGrande.jpg);
+    background-size: cover;
+    background-blend-mode: darken;
 }
